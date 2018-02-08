@@ -4,7 +4,7 @@ Corsface
 **Corsface** is a website based on django framework.
 
 The master is hosted on github:
-https://github.com/TERRY-V/corsface
+https://github.com/TERRY-V/Corsface
 
 Installations
 -------------
