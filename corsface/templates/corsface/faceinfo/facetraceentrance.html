@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>人脸追踪详情</title>
+		<link rel="stylesheet" type="text/css" href="../../../Themes/Style/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../../Themes/Style/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../Themes/Style/setting.css"/>
+
+		<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="corsface/templates/corsface/faceInfo/js/faceTraceEntrance.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/uploadjs/jquery.ui.widget.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/uploadjs/jquery.fileupload.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/uploadjs/jquery.iframe-transport.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/static/Include/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<!-- //图片剪切 -->
+		<script src="/static/Include/jcorp/jquery.Jcrop.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<style>
+			.operateAear{
+				margin-right:430px;
+				margin-left: 20px;
+				
+			}
+			.procedure{
+				float:right;
+				margin:0px 60px 20px 20px;
+				height:888px;
+				width:329px;
+				border: 2px dashed;
+				text-align:center;
+				/* background: url(../../../Themes/Images/ICON/trace/linechang.png) repeat-x; */
+
+			}
+			
+			.procedure	img{
+				margin:28px 0px 22px
+			}
+			.procedure p{
+				display:inline-block;
+				margin:0px 28px;
+			}
+			#use{
+				margin:71px 133px 49px 126px;
+			}
+			#edit{
+				padding-left: 7px;
+			}
+
+			.operateAear .upload{
+				padding: 20px 0;
+				box-sizing: border-box;
+				border: 2px solid #00ace4;
+				border-top: none;
+				color: #83cce4;
+				position: relative;
+			}
+			.uploadImg{
+				position: relative;
+				height: 200px;
+				width: 220px;
+
+				display: inline-block;
+				text-align: center;
+				vertical-align: middle;
+				margin:20px 20px 20px;
+				background-color: rgba(16, 90, 129, 1);
+
+			}
+			.uploadImg p{
+				display:inline-block;
+				margin:20px;
+				font-weight: 300;
+			}
+			.uploadImg input{
+				display:inline-block;
+				margin-top:20px;
+
+			}
+
+			.trancediv{
+				/* margin-bottom:16px; */
+			}
+			.singeleImg{
+				width:198px;
+				height:198px;
+				border: 1px solid;
+				float:left;
+				margin:20px 0px 20px 20px;
+				position:relative;
+			}
+			.singeleImg img{
+				width:198px;
+				height:198px;
+			}
+			.singeleImg .delete, .origanal .delete{
+				position:absolute;
+				bottom:0px;
+				right:0px;
+				width: 101px;
+				height: 40px;
+				background-color: rgba(16, 90, 129, 1);
+				opacity: 0.9;
+			}
+
+			.singeleImg .edit, .origanal .edit{
+				position:absolute;
+				bottom:0;
+				left:0;
+				width: 101px;
+				height: 40px;
+				background-color: rgba(16, 90, 129, 1);
+				opacity: 0.6;
+			}
+			.origanal .delete, .origanal .edit{
+				width:157px;
+				text-align:center;
+			}
+
+			.createAndtrace{
+				min-height:244px;
+				position: relative;
+				/* background:url(../../../Themes/Images/ICON/trace/line1.png) repeat; */
+			}
+			.face_edit{
+				/* background:url(../../../Themes/Images/ICON/trace/line1.png) repeat; */
+				min-height:248px;
+				overflow: auto;
+			}
+			#imgPrepare{
+				position:relative;
+				/* background:url(../../../Themes/Images/ICON/trace/line3.png) repeat; */
+			}
+
+			.content{
+				overflow:auto;
+			}
+
+			#createPerson, #personCheck{
+				position:absolute;
+				top:79px;
+				right:172px;
+			}
+			#trancePerson{
+				position:absolute;
+				top:157px;
+				right:172px;
+			}
+			.origanal{
+				width:312px;
+				height:197px;
+				float:left;
+				position:relative;
+				margin:20px 0px 20px 20px;
+				border: 2px solid rgba(16, 90, 129, 1);
+				vertical-align:middle;
+			}
+			.origanal .img{
+				width:312px;
+				height:197px;
+			}
+			.img_mask{
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+				width: 322px;
+				height: 197px;
+				background: rgba(0,0,0,.4);
+			}
+			.img_hover{
+				display:inline-block;
+			}
+			.origanal img{
+				max-width:310px;
+				max-height:197px;
+
+			}
+			.imgContainer{
+				width:calc(75% - 40px);
+			}
+			#fileupload{
+				width:140px;height:46px;opacity:0;
+				top:10px;
+				position:absolute; display:inline-block;cursor: pointer;
+			}
+			.addChoise{
+				float:left;
+				width:178px;
+				height:198px;
+				border:1px solid;
+				margin:20px 0px;
+				background-color: rgba(16, 90, 129, 1);
+
+			}
+			.addChoiseInput{
+				width:15px;
+				height:15px;
+			}
+
+			.trance{
+				/*height:244px;*/
+				/*width:390px;*/
+				float:left;
+			}
+			#uploadTest{
+				margin-top:46px;
+			}
+			.imgEdit{
+				min-height:259px;
+				text-align:center;
+				font-size:200%;
+				line-height:244px;
+				vertical-align: middle;
+			}
+			#coords {
+				text-align:center;
+				margin:10px
+			}
+			#coords label {
+				margin-right: 1em;
+				font-weight: bold;
+				color: black;
+				display: inline;
+				display:none
+			}
+			#coords input {
+				width: 3em;
+				vertical-align: middle;
+				display:none
+			}
+			.addChoise input[type="button"]{
+				width:81px;
+				height:30px;
+				margin-left:60px;
+			}
+			.progress {
+				width: 30px;
+				position: absolute;
+				top: 0px;
+				right: -30px;
+				display:inline-block;
+				height: 200px;
+				overflow: hidden;
+				background-color: #83CCE4;
+				border-radius: 4px;
+				-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+				box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+			}
+			.progress-bar-success {
+				background-color: #5cb85c;
+			}
+			.progress-bar {
+				float: left;
+				width: 100%;
+				height: 0%;
+				font-size: 12px;
+
+				color: #fff;
+				text-align: center;
+				background-color: #428bca;
+				-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+				box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+				-webkit-transition: width .6s ease;
+				-o-transition: width .6s ease;
+				transition: width .6s ease;
+			}
+			.loadingImg {
+				position: absolute;
+				top: 90px;
+				left: 90px;
+			}
+			.form_title {
+			    margin-top: 30px;
+			    border-top: 1px solid #83CCE4;
+			    position: relative;
+			}
+			.trace_nav_link {
+				margin-top:2px;
+				float: left;
+				width: 130px;
+				height: 35px;
+				box-sizing: border-box;
+				border-radius: 5px;
+				border: 1px solid #00ACE4;
+				line-height: 35px;
+				text-align: center;
+				margin-right: 20px;
+				font-size: 18px;
+				color: white;
+				display: block;
+				cursor: pointer;
+				/* background-color:#33444c */
+			}
+			#faceCompeare{
+				position:absolute;
+				top: 149px;
+    			right: 282px;
+			}
+			.compareImg{
+				padding-top: 10%;
+				margin-left: 30%;
+				position:relative;
+			}
+			.compareImg img{
+				margin:16px;
+				border: 1px solid;
+			}
+			.Pmatches{
+				display: inline-block;
+				top: 50px;
+				left: -26px;
+				width: 30px;
+				height: 30px;
+				border-radius: 15px;
+				line-height: 32px;
+				color: whitesmoke;
+				border: 1px solid #83CCE4;
+				background-color: #105a81;
+			}
+			.bg_header_3>span {
+				float:left;
+				font-size: 16px;
+				height:37px;
+			}
+			.warning_Matchs{
+				position: absolute;
+    			left: 162px;
+				display:inline-block;
+				float: left;
+				width: 30px;
+				height: 30px;
+				border-radius: 15px;
+				line-height: 32px;
+				color: white;
+				font-size: 14px;
+				font-weight: bold;
+				border: 1px solid #f48008;
+				background-color: #f48008;
+				margin-top: 67px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body onload="Init_FaceTraceEntrance()">
+		<div class="main">
+			<div class="procedure">
+				<div><p id="use">使用流程</p></div>
+				<div>
+					<img alt="上传图片" src="../../../Themes/Images/ICON/trace/upload.png">
+				</div>
+				<p>1.上传图片/视频<br> 上传需要追踪任务的图片（身份证、生活照、视频截图等）</p>
+				<div>
+					<img src="../../../Themes/Images/ICON/trace/arrows.png" alt="">
+				</div>
+
+				<div>
+					<img id="edit" src="../../../Themes/Images/ICON/trace/edit.png" alt="检测与编辑">
+				</div>
+				<p>2.人脸检测与编辑<br>根据图片检测中的人脸进行编辑和选择</p>
+				<div>
+					<img src="../../../Themes/Images/ICON/trace/arrows.png" alt="">
+				</div>
+
+				<div>
+					<img src="../../../Themes/Images/ICON/trace/addPic.png" alt="选择图片">
+				</div>
+				<p>3.任务追踪和创建<br>对确定的人脸进行追踪</p>
+			</div>
+			
+				
+			
+			<div class="operateAear">
+			<div class="main_header bg_header_1">
+					
+					<!-- <span class="nav_link active">人物追踪</span>
+						<span class="nav_link">属性分析</span>
+						<span class="nav_link">人脸比对</span> -->
+					<div class=" bg_header_2">
+						<div class="bg_header_3">
+							<span class="trace_nav_link active" value="personSearch">人物检索</span>
+							<span class="trace_nav_link" value="trace">轨迹研判 </span>
+							<span class="trace_nav_link" value="property">属性分析</span>
+							<span class="trace_nav_link" value="faceCompeare">人脸比对</span>
+						</div>
+					</div>
+				</div>
+			<div class="borderz content" style="border-left: 2px solid rgb(0, 172, 228);
+			    border-bottom: 2px solid rgb(0, 172, 228);
+			    border-right: 2px solid rgb(0, 172, 228);">
+			
+				
+				<div class="trancediv">
+				
+					<div class="form_title">
+						<h3>上传视频/照片</h3>
+					</div>
+					<!--<div class=" bg_header_3">上传视频/照片</div>-->
+					<div id="imgPrepare">
+						<div class="uploadImg">
+							<div>
+								<input type="file" id="fileupload" name="upload" mutiple>
+								<input type="button" id="uploadTest" value="上传图片/视频">
+								<p>支持常见视频格式wmv、avi、mp4、3gp、mkv等,文件大小不超过200M</p>
+							</div>
+							<img class = "loadingImg hide" id="loadingImg" src="/CorsFace/Themes/Images/ICON/ping/loading.gif" alt="">
+							<!--<div id="progress" class="progress">-->
+								<!--<div class="progress-bar progress-bar-success"></div>-->
+							<!--</div>-->
+						</div>
+						<input type="button" id="faceCompeare"  class ="hide" value="人员比对">
+
+					</div>
+				</div>
+				<div  class="trancediv">
+					<div class="form_title">
+						<h3>人脸检测与编辑/信息</h3>
+					</div>
+					<div class="face_edit">
+						<div class="imgEdit">无人脸图片</div>
+						<!--<div class="trance">-->
+							<!--<div class="singeleImg">-->
+								<!--<div class="delete"><a class="btn btn-delete"></a></div>-->
+								<!--<div class="edit"><a class="btn btn-edit"></a></div>-->
+								<!--<img src="http://www.36683.com/nrjk/UploadFiles_6655/201412/20141206111919486.jpg" alt="">-->
+							<!--</div>-->
+							<!--<div class="addChoise">-->
+								<!--<div style="margin:10%">-->
+									<!--<input type="radio" class="addChoiseInput" name="glass" value="0"> 不带眼镜-->
+									<!--<br>-->
+									<!--<input type="radio" class="addChoiseInput" name="glass" value="1"> 墨镜-->
+									<!--<br>-->
+									<!--<input type="radio" class="addChoiseInput" name="glass" value="2"> 眼镜-->
+									<!--<br>-->
+									<!--<input type="radio" class="addChoiseInput" name="hair" value="0"> 不带假发-->
+									<!--<br>-->
+									<!--<input type="radio" class="addChoiseInput" name="hair" value="1"> 假发-->
+									<!--<br>-->
+									<!--<input type="button" onclick="addPicToTrance(this, 'key')" value="添加">-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="trance">-->
+							<!--<div class="singeleImg">-->
+							<!--</div>-->
+							<!--<div class="addChoise"></div>-->
+						<!--</div>-->
+						<!--<div class="trance">-->
+							<!--<div class="singeleImg">-->
+							<!--</div>-->
+							<!--<div class="addChoise"></div>-->
+						<!--</div>-->
+
+					</div>
+				</div>
+				<div class="trancediv">
+					<div class="form_title">
+						<h3>人物检索和追踪</h3>
+					</div>
+					
+					<div class="createAndtrace">
+						<div class="imgEdit">未添加人脸</div>
+						<div class="imgContainer">
+							<!--<div class="singeleImg">-->
+								<!--<div class="delete"><a class="btn btn-delete"></a></div>-->
+								<!--<img src="http://www.36683.com/nrjk/UploadFiles_6655/201412/20141206111919486.jpg" alt="">-->
+							<!--</div>-->
+						</div>
+						<input type="button" id="personCheck" value="人物检索">
+						<input type="button" id="trancePerson" class="hide" value="轨迹研判">
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div id="modifyPic"></div>
+		<div id="createPersonByImg"></div>
+	</body>
+
+</html>

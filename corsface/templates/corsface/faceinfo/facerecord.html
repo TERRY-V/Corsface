@@ -1,0 +1,304 @@
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>人脸记录</title>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/faceRecord.css" />
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css" />
+		<link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+		<link rel="stylesheet" href="/static/Include/zTree/demo.css" type="text/css">
+		<style type="text/css">
+			html,
+			body {
+				height: auto;
+				scrollbar-face-color: #006a98;
+				scrollbar-base-color: #003f5a;
+				scrollbar-arrow-color: #006a98;
+			}
+			.layui-layer-ico{
+				border: 0px;
+			}
+			.filtrate_submit {
+				cursor: pointer;
+			}
+			
+			.filtrate_clear {
+				right: 158px;
+			}
+			
+			.face_crawl {
+				margin-right: 270px;
+				height: 100%;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 80px;
+				font-size: 15px;
+				position: relative;
+			}
+			
+			.face_database {
+				margin-right: 270px;
+				height: 100%;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 80px;
+				font-size: 15px;
+				position: relative;
+			}
+			
+			.notRecognised {
+				margin: 30px;
+			}
+			#recogniseState input {
+				margin-left: 12px;
+				vertical-align: middle;
+			}
+			
+			#recogniseState img {
+				height: 20px;
+			}
+			input{
+				padding-left: 0;
+				text-align: left;
+			}
+			label{
+				width: 80px;
+				text-align: center;
+				display: inline-block;
+			}
+			.filtrate_time{
+				margin-right: 22px;
+			}
+			.layui-layer-title {
+				background: url("/static/Themes/Images/Default/layer-title.png") no-repeat !important;
+				background-size: 100% 100% !important;
+				background-color: rgba(255,255,255,0) !important;
+				color: whitesmoke !important;
+				box-sizing: border-box;
+				border-bottom: none;
+				height: 40px;
+			}
+
+			.layui-layer-content {
+				background: #002c40 !important;
+				box-sizing: border-box;
+				border: 2px solid #00ACE4;
+				border-top: none;
+			}
+			.filtrate_input{
+	            float: left;
+	            text-align: left;
+        	}
+        	select{
+        		text-align: center;
+        	}
+        	.filtrate_content{
+        		padding-top: 5px;
+        	}
+        	.filtrate_clear{
+        		right:120px;
+        	}
+        	.filtrate_submit{
+				bottom: 10px;
+			}
+		</style>
+		<!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/System/Frame/JS/respond.js"></script>
+    <![endif]-->
+		<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/echarts.simple.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/static/Include/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/laydate/formateDate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/JS/facejs/faceRecord.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+		<script src="/static/JS/alarmjs/alarmCameraTree.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/jquery/jquery.cookie.js"></script>
+		    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/Pagnation.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+		<script type="text/javascript" src="/static/Include/zTree/jquery.ztree.excheck.min.js"></script>
+	</head>
+
+	<body>
+		<div class="main">
+
+			<div class="main_filtrate" style="margin:0 20px 20px;">
+
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">筛选项</div>
+					</div>
+				</div>
+				<div class="filtrate_content" >
+					<div style="height: 45px">
+						<div class="filtrate_input" >
+							<label for="name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+							<input id="name" placeholder="请输入姓名" type="text" value="" style="width:140px !important;" />
+						</div>
+						<div class="filtrate_input" >
+							<label for="name">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+							<select id="gender" style="margin-left:4px;background-color: #0a364d;width: 140px;height:26px;padding-left:10px;text-align: left;">
+								<option value="">全部</option>
+								<option value="1">女</option>
+								<option value="2">男</option>
+							</select>
+						</div>
+						<div class="filtrate_input" >
+							<label for="id_card">证件号码：</label>
+							<input id="id_card" placeholder="请输入证件号码" type="text" value="" style="width:140px !important;" />
+						</div>
+						
+						
+						
+					</div>
+					<div style="height: 45px">
+						<div class="filtrate_input" >
+						<label for="person_group">人物分组：</label>
+						<select id="person_group" style="background-color: #0a364d;width: 140px;height:26px;padding-left:10px;text-align: left;">
+							<option value="">全部</option>
+						</select>
+						</div>
+						<div class="filtrate_input" >
+						<label for="name">摄&nbsp;像&nbsp;头：</label>
+                    <div class="sel_wrap" style="background-image: none;width:140px;left: 4px;" >
+                        <label id="citySelName" style="text-align: left;padding-left: 14px;font-weight: 500 ">全部</label>
+                        <input id="citySel" class="select"  value="全部"  onclick="showMenu(); return false;"/>
+                    </div>
+                    <div id="menuContent" class="menuContent" style="z-index: 10000;display:none; position: fixed;">
+                        <ul id="treeDemo" class="ztree" style="margin-top:0; width:122px; height: 200px;"></ul>
+                    </div>
+							<!-- <label for="citySel" style="left: 20px;">摄 &nbsp;像 &nbsp;头：</label>
+							<input id="citySel" type="text" readonly placeholder="全部" style="width:140px !important;" onclick="showMenu(); return false;" />
+							
+							<div id="menuContent" class="menuContent" style="z-index: 10000;display:none; position: fixed;">
+								<ul id="treeDemo" class="ztree" style="margin-top:0; width:169px !important;  height: 300px;"></ul>
+							</div> -->
+						</div>
+					</div>
+					<!-- <div class="filtrate_input">
+						<label>时间筛选：</label>
+						<div class="sel_wrap">
+							<label>默认</label>
+							<select class="select" name="alarm_rules" id="timeSelect">
+								<option value="0">当前时间</option>
+								<option value="1">一天内</option>
+								<option value="2">两天内</option>
+								<option value="5">五天内</option>
+							</select>
+						</div>
+					</div> -->
+					<div style="height: 45px;" >
+					<div class="filtrate_input filtrate_time">
+						<label for="startTime">时 间 段：</label>
+						<input type="text" name="startTime" id="startTime" value="" style="width:140px !important;padding-left:9px;"/> ~<input type="text" name="endTime" id="endTime" value="" style="width:140px !important;padding-left:9px;"/>
+					</div><br>
+					</div>
+
+					
+					<!-- <div class="filtrate_input" style="margin-right: 30px">
+						<label for="personGroup">人物分组：</label>
+						<div class="sel_wrap">
+							<label>全部</label>
+							<select class="select" name="personGroup" id="personGroup">
+								<option value="">全部</option>
+							</select>
+						</div>
+					</div>
+					<div class="filtrate_input" style="margin-left: -10px">
+						<label for="personType">人物类别：</label>
+						<div class="sel_wrap">
+							<label>全部</label>
+							<select class="select" name="personType" id="personType">
+								<option value="">全部</option>
+					
+							</select>
+						</div>
+					</div> --><br>
+
+					<!--<div class="filtrate_input">-->
+						<!--<label for="similarityLow">可 信 度：</label>-->
+						<!--<input type="text" id="similarityLow" value="0" name="">&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;&nbsp;<input type="text" value="100" id="similarityHigh" name="">-->
+					<!--</div>-->
+					<div class="filtrate_input" id="recogniseState" style="margin-top: -26px;">
+						<label>身份状态：</label><input type="radio" value="" name="reg" checked>全部
+						<input type="radio" value="2" name="reg">身份已知
+						<img src="/static/Themes/Images/ICON/facetrackstatus2.png"></img>
+						<input type="radio" value="1" name="reg">待 确 定
+						<img src="/static/Themes/Images/ICON/facetrackstatus1.png"></img>
+						<input type="radio" value="0" name="reg">身份未知
+						<img src="/static/Themes/Images/ICON/facetrackstatus3.png"></img>
+
+					</div>
+					<div class="filtrate_input">
+						<div class="filtrate_submit filtrate_clear" id="remove"  style="background-color: #005982;color:white;">
+							重 置
+						</div>
+						<div class="filtrate_submit" id="submit_btn" style="background-color: #005982;color:white;">
+							查 询
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="main_statistics">
+
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">今日统计</div>
+					</div>
+				</div>
+
+				<div class="filtrate_content clearfix">
+					<div id="statistic_chart" style="margin:20px auto;margin-top:-31px;width: 90%px;height:240px;"></div>
+				</div>
+
+			</div>
+
+			<div class="main_record">
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">人脸记录</div>
+					</div>
+				</div>
+				<div class="record_content_wrap">
+					<div class="record_content loading clearfix">
+
+						<!--<div class="faceinfo_wrap">
+							<div class="person_info">
+								<p class="person_name">刘硕</p>
+								<p class="person_type">工作人员</p>
+								<p class="person_group">抓捕人员组</p>
+								<p class="alarm_icon"><img src="" /></p>
+								<div class="face_location">
+									超越网吧门口
+								</div>
+								<div class="face_time">
+									2017-04-13 12:34:11
+								</div>
+
+							</div>
+							<div class="face_info">
+								<p class="face_BRid">人物库</p>
+								<div class="person_img">
+									<img src="" />
+								</div>
+
+							</div>
+
+						</div>-->
+						
+
+					</div>
+					<div class="main_record" id="pageManage"></div>
+				</div>
+
+			</div>
+
+			<!-- end main_record -->
+		</div>
+
+	</body>
+
+</html>

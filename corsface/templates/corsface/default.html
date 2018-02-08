@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ config.site_name }}</title>
+		<link rel="shortcut icon" href="/static/CorsFace.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+		<!--处理ie8兼容-->
+		<!--[if lt IE 9]>
+    		<script type="text/javascript" src="/CorsFace/System/Frame/JS/respond.js"></script>
+    	<![endif]-->
+                <script src="/static/AdminLTE-2.4.2/bower_components/jquery/dist/jquery.min.js"></script>
+                <script src="/static/Include/jquery/jquery.cookie.js"></script>
+                <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+                <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/System/JS/Default.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			#shadow{
+				height: 100% !important;
+				width: 100% !important;
+				position: absolute;
+				z-index: 10;
+				top:0;
+				left:0 !important;
+				bottom: 0;
+				right: 0;
+				background: rgba(0,0,0,.4);
+				/*background: url("Themes/Images/Default/maobl.png");*/
+			}
+		</style>
+	</head>
+	<body onload="">
+	<iframe src="" frameborder="0" id="shadow" class="hide"></iframe>
+		<div class="wrapper">
+			<!--边框-->
+			<table class="wrapper_1 wrapper_bg">
+				<tr>
+					<td class="wrapper_1_left"></td>
+					<td class="wrapper_1_mid"></td>
+					<td class="wrapper_1_right"></td>
+				</tr>
+			</table>
+			<div class="wrapper_2 wrapper_bg">
+				<div class="wrapper_2_1"></div>
+				<div class="wrapper_2_2"></div>
+				<div class="wrapper_2_3"></div>
+			</div>
+
+			<table class="wrapper_3 wrapper_bg">
+				<tr>
+					<td class="wrapper_3-1"></td>
+					<td class="wrapper_3-2"></td>
+					<td class="wrapper_3-3"></td>
+					<td class="wrapper_3-4"></td>
+					<td class="wrapper_3-5"></td>
+					<td class="wrapper_3-6"></td>
+					<td class="wrapper_3-7"></td>
+					<td class="wrapper_3-8"></td>
+					<td class="wrapper_3-9"></td>
+				</tr>
+			</table>
+			<div class="wrapper_4 wrapper_bg">
+				<div class="wrapper_4_9"></div>
+				<div class="wrapper_4_8"></div>
+				<div class="wrapper_4_7"></div>
+				<div class="wrapper_4_6"></div>
+				<div class="wrapper_4_5"></div>
+				<div class="wrapper_4_4"></div>
+				<div class="wrapper_4_3"></div>
+				<div class="wrapper_4_2"></div>
+				<div class="wrapper_4_1"></div>
+			</div>
+			<!--主要内容-->
+			<div class="wrapper_5 wrapper_bg">
+				<div class="header">
+					<div class="header_logo">
+						<a href="/corsface" >
+							<img src="/static/Themes/Images/Default/logo.png" />
+						</a>
+					</div>
+					<div class="header_nav"></div>
+					<div class="header_loginbar">
+						<div class="loginbar_top">
+							<div class="loginbar_username">
+								用户名：<span>{{ user.username }}</span>
+							</div>
+						</div>
+						<div class="loginbar_mid">
+						</div>
+						<div class="loginbar_bottom">
+						</div>
+					</div>
+					<div class="loginbar_logout">
+						<!-- <button id="logout"> 退出 </button> -->
+						<a href="#" id="logout">退出</a>
+					</div>
+				</div>
+				<div class="setting_list hide"></div>
+				<div id="iframe_warp">
+					<iframe id="iframe" src="/corsface/index"></iframe> 
+				</div>
+			</div>
+		</div>
+	<div id="copyright">{{ config.copyright }}</div>
+	</body>
+
+</html>

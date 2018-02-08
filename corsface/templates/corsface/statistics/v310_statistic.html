@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>统计</title>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_alarmRecord.css" />
+    <link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="/static/Include/zTree/demo.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/statistics.css" />
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/laydate/formateDate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/alarmjs/alarmCameraTree.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/TimeControl.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.excheck.min.js"></script>
+    <!--<script src="/static/Business/Statistics/JS/alarmCameraTree.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="/static/Include/jquery/jquery.cookie.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/statistics/v310_statistic.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <div class="content_left">
+        <div class="main_statistics">
+            <div class="camera_header bg_header_1">
+                <div class=" bg_header_2">
+                    <div class=" bg_header_3">统计信息</div>
+                </div>
+            </div>
+            <div class="statistics_content">
+                <div class="today_num">
+                    <div>今日抓拍：<i><span class="num_span" id="num_z">0</span></i> 人</div>
+                    <div>今日报警：<i><span class="num_span" id="num_p">0</span></i> 人</div>
+                </div>
+                <table>
+                    <thead>
+                    <tr><td style="width: 80px;font-weight: bold"></td><td>抓拍量</td><td>报警量</td></tr>
+                    </thead>
+                    <tbody id="table_statistics">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="content_right">
+
+        <div class="main_statistics">
+            <div class="camera_header bg_header_1">
+                <div class=" bg_header_2">
+                    <div class=" bg_header_3">统计图表</div>
+                </div>
+            </div>
+            <div class="statistics_content">
+                <div class="header_search">
+                    <span class="radio_bg act"></span><input name="time" type="radio" id="select_today" checked value="今日"><label for="select_today">今日</label>
+                    <span class="radio_bg"></span><input name="time" type="radio" id="select_lastday" checked value="昨日"><label for="select_lastday">昨日</label>
+                    <span class="radio_bg"></span><input name="time" type="radio" id="select_week" value="最近一周"><label for="select_week">最近7天</label>
+                    <span class="radio_bg"></span><input name="time" type="radio" id="select_month" value="最近一月"><label for="select_month">最近30天</label>
+
+                    <div id="timeWrap"></div>
+
+                    <div class="filtrate_input" style="float: left">
+                        <span style="letter-spacing: 5px">摄像头：</span>
+                        <div class="sel_wrap" >
+                            <label id="citySelName">全部</label>
+                            <input id="citySel" class="select"  value=""  onclick="showMenu(); return false;"/>
+                        </div>
+                        <div id="menuContent" class="menuContent" style="z-index: 10000;display:none; position: fixed;">
+                            <ul id="treeDemo" class="ztree" style="margin-top:0; width:122px; height: 200px;"></ul>
+                        </div>
+                    </div>
+                    <!--<input type="button" id="S_search" value="查询">-->
+                </div>
+                <div id="statistic_charts_a"></div>
+                <div id="statistic_charts_p"></div>
+                <div class="segmentation"></div>
+                <div id="statistic_charts_z"></div>
+                <div id="statistic_charts"></div>
+            </div>
+
+
+    </div>
+
+
+    <!--<div id="statistic_charts_zx" style="width: 1000px;height: 600px"></div>-->
+
+</div>
+</body>
+</html>

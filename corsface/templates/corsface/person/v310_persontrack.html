@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>人物合并管理</title>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css" />
+    <link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="/static/Include/zTree/demo.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/persontrack.css" />
+
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/Include/JS/respond.js"></script>
+    <![endif]-->
+    <script src="/static/JS/alarmjs/alarmCameraTree.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.excheck.min.js"></script>
+    <script src="/static/Include/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/laydate/formateDate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/Pagnation.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/persontrack/v310_persontrack.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+
+    </style>
+</head>
+<body onload="">
+<div class="main">
+    <div class="alarm_media" id="showFaceTrack" style="display: none">
+        <div id="media_BImg" class="media_BImg">
+            <img src="" alt="">
+        </div>
+        <div id="media_images" class="media_images" style="top: 0px;">
+        </div>
+    </div>
+    <div class="main_addRule">
+        <div class="main_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3"><span id="personName"></span>人脸序列管理<span class="back"></span></div>
+            </div>
+        </div>
+        <div class="CameraSet_content content">
+
+            <div>
+
+                <div class="content_select_title">
+                    <h3 class="act" id="personSearch">已添加序列</h3>
+                    <h3 id="personTrace">相似序列</h3>
+                    <div class="res_filter" id="attr_filter">
+                        请选择识别端：
+                        <select name="recognize" id="recognizeA">
+                        </select>
+                    </div>
+                </div>
+                <div class="face_filter hide" id="like_filter" style="border-bottom: none;margin-bottom: 0;padding-bottom: 5px">
+                    <div class="" style="display: inline-block;vertical-align: middle">
+                        <span>摄&nbsp;像&nbsp;头&nbsp;：</span>
+                        <div class="sel_wrap" >
+                            <label id="citySelName">全部</label>
+                            <input id="citySel" class="select"  value=""  onclick="showMenu(); return false;"/>
+                        </div>
+                        <div id="menuContent" class="menuContent" style="z-index: 10000;display:none; position: fixed;">
+                            <ul id="treeDemo" class="ztree" style="margin-top:0; width:122px; height: 200px;"></ul>
+                        </div>
+                    </div>
+                    时间段：<input type="text" id="startTime"> - <input type="text" id="endTime">
+                    <!--<input type="button" id="getTrace" value="搜索序列">-->
+                    <div class="header_search">
+                        排序方式：
+                        <span class="radio_bg act"></span><input name="time" type="radio" id="select_time1" checked="" value="时间倒序"><label for="select_time1">时间倒序</label>
+                        <span class="radio_bg"></span><input name="time" type="radio" id="select_time2" checked="" value="时间正序"><label for="select_time2">时间正序</label>
+                        <span class="radio_bg"></span><input name="time" type="radio" id="select_score1" value="相似度倒序"><label for="select_score1">相似度倒序</label>
+                        <span class="radio_bg"></span><input name="time" type="radio" id="select_score2" value="相似度正序"><label for="select_score2">相似度正序</label>
+                    </div>
+                </div>
+
+                <div id="divListTable1" class="comclass1">
+                    <div id="face_track_head"></div>
+                  <div id="face_tack">
+                      <div class="faceTrack">
+                          <div class="trackOperate">
+                              <input type="button" value="删除">
+                          </div>
+                          <div class="trackImgs">
+                              <img class="trackImg" src="/static/Themes/Attach/icon/imgNotFound144.png" alt="">
+                              <img class="trackImg" src="" alt="">
+                              <img class="trackImg" src="" alt="">
+                              <img class="trackImg" src="" alt="">
+                              <img class="trackImg" src="" alt="">
+                          </div>
+                          <div class="trackInfo">
+                              <div class="trackCAName">海清门口摄像头</div>
+                              <div class="trackTime">2017-12-27 11:34:21</div>
+                          </div>
+                      </div>
+                  </div>
+                    <div id="page_wrap">
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+<script>
+
+</script>

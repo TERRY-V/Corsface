@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ config.site_name }}</title>
+		<link rel="shortcut icon" href="/static/CorsFace.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/login.css" />
+
+		<!-- jQuery 2.2.3 -->
+		<script src="/static/AdminLTE-2.4.2/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/static/Include/jquery/jquery.cookie.js"></script>
+		<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/System/JS/Login.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body onload="InitLogin()">
+		<h1><img src="/static/Themes/Images/Login/login_head.png"/></h1>
+		<div class="login_wrap">
+
+				{% csrf_token %} 
+
+				<div class="userName">
+					<img src="/static/Themes/Images/ICON/user.png" />
+					<input type="text" name="username" id="username" onkeypress="if(event.keyCode==13) {Focus();return false;}"/>
+				</div>
+				
+				<div class="password">
+					<img src="/static/Themes/Images/ICON/password.png" />
+					<input type="password" name="password" id="password" onkeypress="if(event.keyCode==13) {Login();return false;}" />
+				</div>
+				<div id="error">
+
+				</div>
+				<input id="login" type="button" value="登录" onclick="Login()" style="cursor:hand" />
+
+
+		</div>
+		<a id="help" href="/corsface/help">下载插件</a>
+	</body>
+
+</html>

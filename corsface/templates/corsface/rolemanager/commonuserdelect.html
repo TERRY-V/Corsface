@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+    <link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="/static/Themes/Style/ztree.css" type="text/css">
+
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery/jquery.cookie.js"></script>
+		<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/FormEngine.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+
+    <script src="/static/JS/rolemanagerjs/role.js"></script>
+    <link rel="stylesheet" href="/static/Themes/Style/selectUsers.css" type="text/css">
+    <script src="/static/JS/rolemanagerjs/selectusers.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body onload="Init_RoleSelect_User()">
+<table>
+    <tr>
+        <!--left-->
+        <td>
+            <!--Tab-->
+            <div class="tableContent" >
+                <div class="tabWrapper" >
+                    <span class="spnTab" onclick="getRoleTree()">角色</span>
+                    <span class="spnSpace"></span>
+                    <span class="spnTab" onclick="getUserSearch()">用户</span>
+                </div>
+                <!--Role Tree-->
+                <div id="divUserTree" class="divUserTree" >
+                    <ul id="treeRole"  class="ztree"></ul>
+                </div>
+                <!--User Search-->
+                <div id="divUserSech" class="divUserSech">
+                    <input type="text" id="search_user" style="width: 150px">
+                    <input type="button" style="width: 150px" id="search_btn" value=" 查询 ">
+                </div>
+            </div>
+        </td>
+        <!--Unselected User-->
+        <td>
+            <select class="selectRect" id="selUnSelectUser" ondblclick="fromUnselectToSelect()" multiple="multiple"></select>
+        </td>
+        <!--btn-->
+        <td style="vertical-align: middle">
+            <span title="添加用户" class="spnToRight" onclick="fromUnselectToSelect()"></span>
+            <span title="删除用户" class="spnToLeft" onclick="fromSelectToUnselect()"></span>
+        </td>
+        <!--Selected User  -->
+        <td>
+            <select class="selectRect" style="" id="selSelectedUser" ondblclick="fromSelectToUnselect()" multiple="multiple"></select>
+        </td>
+        <div class="btnWrapper">
+            <input id="okBtn" class="btn" type="button" value="确定"/>
+            <input id="cancelBtn" class="btn" type="button" value="取消"/>
+        </div>
+    </tr>
+</table>
+</body>
+</html>

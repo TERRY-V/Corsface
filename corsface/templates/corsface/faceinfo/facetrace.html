@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>人脸追踪详情</title>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_offlineMap.css" />
+
+
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/faceInfo.css" />
+
+		<link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+		<link rel="stylesheet" href="/static/Include/zTree/demo.css" type="text/css">
+		<!--处理ie8兼容-->
+		<!--[if lt IE 9]>
+    		<script type="text/javascript" src="/CorsFace/Include/respond.js"></script>
+    	<![endif]-->
+		<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/api_v2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hlrOyIkzhSAYj7LpG4izpFZo1qrYd5Gm"></script>
+		<script src="/static/System/JS/baiduMap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/corsface/templates/corsface/faceInfo/js/faceTrace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/static/Include/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+		<!-- 获取得到ztree-->
+		<script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+		<script type="text/javascript" src="/static/Include/zTree/jquery.ztree.excheck.min.js"></script>
+		<script src="/corsface/templates/corsface/alarm/js/alarmCameraTree.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+		<style>
+			.spnFace img {
+				width: 100px;
+				-moz-border-radius: 50px;
+				-webkit-border-radius: 50px;
+				border-radius: 50px;
+			}
+			.main{
+				min-width: 1664px;
+			}
+			.search-inlne{
+				display:inline-block;
+				margin-left:50px;
+				margin-top:4px;
+			}
+			.search-inlne input {
+				background: #002c40;
+				border: 1px solid #00ace4;
+				height: 26px;
+				color: #83CCE4;
+				box-sizing: border-box;
+				padding-left: 10px;
+			}
+			#mainMap{
+				height:100%;
+				position: relative;
+				overflow: hidden;
+			}
+			.marker_vlc{
+				width: 200px;
+				font-size: 13px;
+				text-align: center;
+				height: auto;
+				top: 40px;
+				bottom: auto;
+			}
+			.media_BImg img{
+				    max-width: 488px;
+    				max-height: 256px;
+    				vertical-align: middle;
+    				padding: 2px;
+			}
+			.spnTxt .spnSingTxt{
+				margin-top:-9px;
+			}
+			.search-inlne select{
+				background: #002c40;
+				color: #83CCE4;
+				height: 30px;
+				line-height: 30px;
+				border: 1px solid #00ace4;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body onload="Init_FaceTrace()">
+
+		
+		<div class="main">
+			<div class="loading"></div>
+			<div class="main_faceINfo">
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">人脸追踪详情</div>
+					</div>
+				</div>
+				<div class="faceINfo_content">
+					<div class="face_media">
+
+						<!--<div class="media_video">
+							
+						</div>-->
+						<div class="media_BImg">
+							<img src="" />
+						</div>
+						<div class="media_images">
+							<img src="" />
+							<img src="" />
+							<img src="" />
+							<img src="" />
+							<img src="" />
+							<img src="" />
+							<img src="" />
+							<img src="" />
+							<img src="" />
+						</div>
+					</div>
+					<div style="height:40px; margin-bottom: 10px; text-align:center; vertical-align:middle">
+						<div class="search-inlne">
+							<label for="citySel">摄 像 头：</label>
+							<input id="citySel" type="text" readonly value="全部" style="width:180px !important;" onclick="showMenu(); return false;" />
+							<div id="menuContent" class="menuContent" style="z-index: 10000;display:none; position: absolute;">
+								<ul id="treeDemo" class="ztree" style="margin-top:0; width:180px; height: 300px;"></ul>
+							</div>
+						</div>
+						<div class="search-inlne">
+							<label for="startTime">时 间 段：</label>
+							<input type="text" name="startTime" id="startTime" value="" /> ~ <input type="text" name="endTime" id="endTime" value="" />
+						</div>
+						<div class="search-inlne">
+							<label>相似度:</label>
+							<input type="text" name="Matchs" value="">
+						</div>
+						<div class="search-inlne">
+							<label>排序规则:</label>
+							<select name="similarity">
+								<option value="1">按时间倒排</option>
+								<option value="2">按可信度倒排</option>
+							</select>
+
+						</div>
+						<input type="button" value="查询" id="search" style="height: 26px">
+					</div>
+					<div class="faceTrace_result">
+						<div class="faceTrace_tree" style="overflow:auto;text-align:center;padding:10px 10px 20px 7%;">
+							<div id="searchNoResult" class="hide">查询无结果</div>
+							<table id="fTraceTree" class="hide">
+								<tr>
+									<td id="leftTraceTree" style="padding-top:10px">
+	
+									</td>
+									<td class="treeMain"></td>
+									<td id="rightTraceTree">
+	
+									</td>
+								</tr>
+								<tr>
+									<td class="treeBottom" colspan="3">&nbsp;</td>
+								</tr>
+							</table>
+						</div>
+						<div class="faceTrace_map " id="FaceTraceMap">
+
+						</div>
+						<div class="faceTrace_map hide" id="FaceTraceLocalMap">
+							<div class="" id="mainMap">
+								<div class="monitoring_rtsp_photo">
+									<img id="map_img" src="/CorsFace/" alt="">
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

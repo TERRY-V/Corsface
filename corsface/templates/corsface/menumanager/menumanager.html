@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Menu_Manage</title>
+		<link rel="stylesheet" href="/static/Themes/Style/index.css">
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css" />
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css" />
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/bootstrap-select.css" />
+		<style>
+			th{
+				background-color: #09354c;
+				border-top: 2px solid #476a7d;
+				border-bottom: 2px solid #07283a;
+			}
+			.main_header {
+				height: 40px;
+			}
+			
+			.main {
+				margin: auto;
+				width: 96%;
+			}
+			
+			.main_content {
+				border: 2px solid #00A0E9;
+				height: calc(100% - 40px);
+			}
+			
+			.form_btn {
+				padding: 30px 0 30px 30%;
+			}
+			
+			.form_btn input[type="button"] {
+				margin: 0 30px;
+			}
+			
+			.list {
+				position: absolute;
+				border: 1px solid #00A0E9;
+				overflow-y: auto;
+				display: none;
+				padding-left: 10px;
+			}
+			
+			.list li {
+				line-height: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				border-bottom: 1px solid #1a455c;
+			}
+			
+			.list input {
+				display: inline-block;
+				line-height: 30px;
+				height: 20px;
+				vertical-align: middle;
+			}
+			
+			.list span {
+				display: inline-block;
+				line-height: 25px;
+				height: 100%;
+				vertical-align: middle;
+			}
+			.btnBar{
+				margin-bottom:0;
+				padding-top: 0;
+			}
+			.person_msg{
+				padding-top: 0;
+			}
+			.tbod{
+				border-bottom:1px solid #1a455c;
+			}
+			#page{
+				width: 50px;
+				height: 25px;
+				border: 0px;
+				border-radius:2px;
+			}
+			.nr{
+				background-color: rgba(0,0,0,0.3);
+				z-index:1001;
+			}
+			.formadd{
+				margin-left: 35%;
+				margin-top: 200px;
+				
+				width: 500px;
+				height: 300px;
+				z-index:1002;
+			}
+			.formadd_top{
+				height: 45px;
+				background-color: #005282;
+			}
+			.formadd_center{
+				height: 200px;
+				background-color: #002c40;
+				border: 2px solid #00ace4;
+			}
+			.formadd_floor{
+				height: 50px;
+				width: 100%;
+				background-color: #06405c;
+			}
+			.title{
+				margin-left:20px;
+				font-size:18px;
+				color: white;
+				line-height: 42px;
+				font-weight: 600;
+			}
+			.close{
+				font-size:15px;
+				float: left;
+				align:right;
+			}
+			.dgdbutton{
+				border-radius:0px;
+				border:0px;
+			}
+			span{
+				font-size: 15px;
+				color: #83cce4;
+			}
+			.layui-layer-close1{
+				border:0px;
+			}
+			.layui-layer-content{
+				color: white;
+			}
+			.cur{
+				cursor:pointer;
+				font-size:18px;
+			}
+		</style>
+		<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/bootstrap-select.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/MutiSelect.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/FormEngine.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/jquery/jquery.cookie.js"></script>
+		<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+		<script src="/static/JS/menumanager/menumanager.js"></script>
+	</head>
+
+	<body onload="Init_MenuMge()">
+		<div class="main">
+			<div class="main_header bg_header_1">
+				<div class=" bg_header_2">
+					<div class=" bg_header_3" ></div>
+					<div class="" id="bg_header_3" style="margin-top: -40px;padding-left:105px;">
+					</div>
+					<div class="" id="bg_header_99" style="margin-top: -40px;padding-left:27px;">
+					
+					<span class="cur" id="0" onclick="bypid(this)">菜单管理</span>
+					</div>
+				</div>
+			</div>
+			<div class="CameraSet_content content">
+				<div class="person_msg" style="border-top: none;">
+					<div class="btnBar">
+						<input type="button" name="form_Add" id="form_Add" value="新建" onclick="form_Add()" />
+						<input type="button" name="form_Add" id="form_Back" class="hide" value="返回" />
+						<input type="button" name="form_Add" id="form_Delete" value="删除" />
+					</div>
+					<!--<div class="show_filtrate">-->
+						<!--<span id="total_count" class="total_count left"></span>-->
+						<!--<span id="table_refresh"></span>-->
+						<!--<span id="table_filtrate"></span>-->
+						<!--<ul id="table_filtrate_li" class="hide"></ul>-->
+					<!--</div>-->
+					<!--列表-->
+					<div id="divListTable">
+						<table>
+							<thead style="border-bottom: 2px solid white">
+								<th id="check_th">
+									
+								</th>
+								<th>菜单名称</th>
+								<th>菜单地址</th>
+								<th>排序</th>
+								<th>操作</th>
+							</thead>
+							<tbody class="tbody">
+								
+							</tbody>
+						</table>
+						<div>
+							<div align="right" style="margin-right: 50px;" class="page">
+								
+								<input id="page" type="button" name="start" value="首页" onclick="initPageButton('start')" />
+								<input id="page" type="button" name="last" value="上一页" onclick="initPageButton('last')" />
+								<input type="text" vale=1 id="nowpage" onkeyup="value=value.replace(/[^\d]/g,'')" style="width: 25px;height: 25px;padding-left: 0px;text-align: center;">
+								/<span id="pagenumber"></span>
+								<input id="page" type="button" name="next" value="下一页" onclick="initPageButton('next')" />
+								<input id="page" type="button" name="end" value="尾页" onclick="initPageButton('end')" />
+								(共<span id="number"></span>条数据)
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--删除按钮-->
+
+				<!--表单-->
+				<div id="divForm" class="comclass"></div>
+				
+			</div>
+
+		</div>
+		<div class="nr" style="position: absolute;width: 100%;top:0%;height: 100%;display:none;">
+			<div class="formadd">
+				<div class="formadd_top">
+					<div class="title">添加</div>
+				</div>
+				<div class="formadd_center" style="padding:30px 30px;">
+					<span>菜单名称：</span><input type="text" placeholder="必填" id="menuname"  maxlength="15"><br><br>
+					<span>菜单地址：</span><input type="text" placeholder="选填" id="menuaddress"><br><br>
+					<span>菜单排序：</span><input type="text" placeholder="必填" id="menuno" style="width: 50px;"  maxlength="3"><br><br>
+					<input type="hidden" id="hidden" value="0">;
+				</div>
+				<div class="formadd_floor">
+					<div style="width:150px;margin-left: 300px;">
+						<input style="border-radius:0px;border:0px;width: 50px;" type="button" value="确定" onclick="newform()">
+						<input style="border-radius:0px;border:0px;width: 50px;" type="button" value="取消" onclick="closeform()" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

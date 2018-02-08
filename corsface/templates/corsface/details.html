@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/Include/JS/respond.js"></script>
+    <![endif]-->
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .shadow{
+            width: 100%;
+            height: 100%;
+            /*background: url("./Themes/Images/Default/mbl.png");*/
+            -webkit-filter: blur(9px);
+            filter: blur(9px);
+            /*opacity: .2;*/
+        }
+        .layui-layer-title {
+            background: url("/static/Themes/Images/Default/layer-title.png") no-repeat !important;
+            background-size: 100% 100% !important;
+            background-color: rgba(255,255,255,0) !important;
+            color: whitesmoke !important;
+            box-sizing: border-box;
+            border-bottom: none;
+            height: 40px;
+        }
+
+        .layui-layer-content {
+            background: #002c40 !important;
+            box-sizing: border-box;
+            border: 2px solid #00ACE4;
+            border-top: none;
+        }
+        .layui-layer{
+            margin: 0;
+            padding: 0;
+            background-color: rgba(0,0,0,0);
+            -webkit-background-clip: content;
+            box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="shadow"></div>
+</body>
+<script type="text/javascript">
+    var URL = Util.GetParam('URL');
+    var width = Util.GetParam('width');
+    var height = Util.GetParam('height');
+    var type = Number(Util.GetParam('type'));
+    var title = Util.GetParam('title');
+    URL = URL + "&type="+title;
+    console.log(URL);
+    if(title==1){
+        title = '人脸详情'
+    }else {
+        title = '报警详情'
+    }
+
+    jQuery(function ($) {
+        $(window).on('click',function (e) {
+            if($(e.target).hasClass('layui-layer-shade')){
+                //这里点击取去掉弹窗。
+                $(parent.document).find('#shadow').addClass('hide').attr('src','');
+                $(parent.document).find('.wrapper').removeClass('blur');
+                // var deleteA = $('iframe')[0].contentWindow.deleteAlarm;
+                // var uuid = $('iframe')[0].contentWindow.Duuid;
+                // if(deleteA){
+                //     deleteAlarm(uuid)
+                // }
+                showVlc();
+            }
+        });
+
+        layer.open({
+            type: type,
+            title: title,
+            shade: [0.4],
+            area: [width, height],
+            //			time: 2000, //2秒后自动关闭
+            content: [URL], //iframe的url，no代表不显示滚动条
+            cancel: function(index, layero){
+                layer.close(index);
+                $(parent.document).find('#shadow').addClass('hide').attr('src','');
+                $(parent.document).find('.wrapper').removeClass('blur');
+                // var deleteA = $('iframe')[0].contentWindow.deleteAlarm;
+                // var uuid = $('iframe')[0].contentWindow.Duuid;
+                // $(parent.document).find('.wrapper').removeClass('blur');
+                // if(deleteA){
+                //     deleteAlarm(uuid)
+                // }
+                showVlc()
+            }
+        });
+    });
+    function showVlc(){
+        //在弹窗取消掉之后把之前停止的vlc再次打开.
+        var docu = $(parent.document).find('#iframe')[0].contentDocument;
+        var vlcObjs = $(docu).find("object");
+        $(vlcObjs).each(function(){
+            // console.log(this);
+            var vlc = $(this);
+            var that = this;
+            var playUrl = vlc.attr('data-url');
+            var isPlay = vlc.attr('isPlay');
+            if(playUrl && isPlay == "true"){
+                // if(that.playlist){
+                    console.log("playlist");
+                    vlc.removeClass("hide");
+                    var vlcid = that.playlist.add(playUrl);
+                    that.playlist.playItem(vlcid);
+                // }
+            }
+            
+        });
+    }
+    function deleteAlarm(aid) {
+        var docu = $(parent.document).find('#iframe')[0].contentDocument;
+        var win = $(parent.document).find('#iframe')[0].contentWindow;
+        for(var i=0;i<$(docu).find('.warning_info').length;i++){
+            if($($(docu).find('.warning_info')[i]).attr('aid')==aid){
+                console.log($(docu).find('.warning_info')[i]);
+                $($(docu).find('.warning_info')[i]).remove();
+                console.log($(docu)[0]);
+                win.todayAl--;
+                $(docu).find('#todayAlarm').text(win.todayAl);
+            }
+        }
+    }
+</script>
+</html>

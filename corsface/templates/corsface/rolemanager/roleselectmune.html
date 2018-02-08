@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+		
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/role.css"/>
+		
+		<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/jquery/jquery.cookie.js"></script>
+		<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/FormEngine.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/JS/rolemanagerjs/role.js"></script>
+</head>
+<body onload="Init_Select()">
+		<div></div>
+		
+		<div class="wrapper">
+			<div class="box">
+				用户名:<input type="text" id="userName"><br>
+				<input type="button" value="查询角色" onclick="Find_User()">
+			</div>
+			<div class="box" id="showUser">
+			</div>
+			<div class="box" id="showMyUser">
+			</div>
+		</div>	
+		
+		
+		
+		
+</body>
+</html>

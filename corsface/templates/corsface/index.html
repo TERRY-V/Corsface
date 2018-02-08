@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+	<script src="/static/Include/api_v2.0.js" type="text/javascript" charset="utf-8"></script>
+	<!--[if lt IE 9]>
+    	<script type="text/javascript" src="/static/Include/JS/respond.js"></script>
+    <![endif]-->
+	<script src="/static/AdminLTE-2.4.2/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+	<script src="/static/Include/jquery/jquery.cookie.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+	<!-- <script src="/static/Include/ajax-pushlet-client.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="/static/System/JS/rewebsocket.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/System/JS/homePage.js" type="text/javascript" charset="utf-8"></script>
+
+	<style type="text/css">
+		html,
+		body {
+			height: auto;
+			scrollbar-face-color: #006a98;
+			scrollbar-base-color: #003f5a;
+			scrollbar-arrow-color: #006a98;
+		}
+		#vlc1{
+			width:95%;
+			height:95%;
+		}
+		
+	</style>
+
+	<body>
+		<div class="main">
+			<div id="SurImg" class="hide"><img src="" alt=""></div>
+			<div class="main_camera">
+				<div class="camera_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3"><em class="cameraHead"></em>摄像头 <i></i><span class="pattern hide" data-url="/corsface/map"></span></div>
+					</div>
+				</div>
+				<div class="camera_content">
+					<div class="camera_change">
+						<!--<div class="camera_change_group">-->
+							<!--<div class="camera_change_group_head">-->
+								<!--前门摄像头<span></span>-->
+							<!--</div>-->
+							<!--<ul>-->
+								<!--<li data-url="123.2.343">前门摄像头1</li>-->
+								<!--<li>前门摄像头1ddddddddddddddddddddddddddddd <span class="camera_person">12</span><span class="camera_alarm">10</span></li>-->
+								<!--<li>前门摄像头1</li>-->
+							<!--</ul>-->
+						<!--</div>-->
+						<!--<div class="camera_change_group">-->
+							<!--<div class="camera_change_group_head">-->
+								<!--前门摄像头-->
+							<!--</div>-->
+							<!--<ul>-->
+								<!--<li>前门摄像头1</li>-->
+								<!--<li>前门摄像头1</li>-->
+								<!--<li>前门摄像头1</li>-->
+							<!--</ul>-->
+						<!--</div>-->
+					</div>
+					<div id="camera_Bmap" class="camera_Bmap hide">
+
+					</div>
+				</div>
+			</div>
+			<div class="main_warning">
+				<div class="warning_header bg_header_1">
+
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">报警记录<a title="更多" class="more" href="javascript:$(parent.document).find('#002')[0].click()"></a></div>
+					</div>
+				</div>
+				<div class="warning_content_wrap">
+					<div class="warning_content">
+						<!--<div class="warning_info">-->
+						<!--<div class="warning_info_content">-->
+							<!--<div class="warning_info_content_left">-->
+								<!--<div class="warning_info_content_img">-->
+									<!--<img src="/CorsFace/Attach/icon/imgNotFound144.png">-->
+								<!--</div>-->
+								<!--<div class="warning_Matchs">80%</div>-->
+								<!--<div class="warning_info_content_img personImg">-->
+									<!--<img src="/CorsFace/Attach/icon/imgNotFound144.png">-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--<div class="warning_info_content_right">-->
+								<!--<div class="warning_info_content_alarmIcon" style="background-image: url(/CorsFace/Themes/Images/ICON/alarm4.png);"></div>-->
+								<!--<div class="warning_info_content_surImg initSurImg" data-url="/CorsFace/Attach/Upload/Alerm/201712/78c81fd9-f504-48b9-9e44-aaff57fc5c69.jpg"></div>-->
+								<!--<div class="warning_surImg hide"><img src="/CorsFace/Attach/icon/imgNotFound144.png"></div>-->
+							<!--</div>-->
+							<!--<div class="warning_info_content_mid">-->
+								<!--<div class="warning_info_content_name">熊林虎</div>-->
+								<!--<div class="warning_info_content_location">BM201712180113</div>-->
+								<!--<div class="warning_info_content_pid">证件号码：1238716471624794</div>-->
+								<!--<div class="warning_info_content_address" title="海清枪型机海清枪型机海清枪型机海清枪型机海清枪型机">地址：海清枪型机海清枪型机海清枪型机海清枪型机海清枪型机</div>-->
+								<!--<div class="warning_info_content_location">海清枪型机</div>-->
+								<!--<div class="warning_info_content_time" style="font-size: 12px;">2017-12-18 12:37:32</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+					</div>
+				</div>
+			</div>
+			<div class="main_monitoring">
+				<div id="shrinkSwitch" class="hide" ></div>
+				<div class="monitoring_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">监控视频<span class="pattern"></span></div>
+					</div>
+				</div>
+				<div class="monitoring_rtsp">
+					<div class="bg_rtsp1">
+
+					</div>
+					<div class="bg_rtsp2">
+
+					</div>
+					<div class="bg_rtsp3">
+
+					</div>
+					<div class="bg_rtsp4">
+
+					</div>
+					<div class="monitoring_rtsp_content rtsp_layout1">
+						<div class="monitoring_vlc">
+							<span></span>
+							<object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false'>
+					    		<param name='mrl' value='' />
+					    		<param name='volume' value='50' />
+					    		<param name='autoplay' value='true' />
+					    		<param name='loop' value='false' />
+					    		<param name='fullscreen' value='false' />
+					    		<param name='controls' value='false' />
+					    		<param name='branding' value='false' />
+								<param name='bgcolor' value='black' />
+							</object>
+							<div class="monitoring_vlc_title">
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="main_realtime">
+				<div class="realtime_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">实时抓拍  <a title="更多" class="more" href="javascript:$(parent.document).find('#004')[0].click()"></a><span >今日抓拍数量： <i id="TodayTrack" style="font-size: 15px;color: #f48008;font-weight: bold">0</i></span> </div>
+					</div>
+				</div>
+				<div class="realtime_content">
+					<div class="realtime_content_Rwrap">
+						<!--<div class="realtime_info" id="">-->
+							<!--<div class="face_ptag">运维</div>-->
+							<!--<div class="face_sort">适当的</div>-->
+							<!--<div class="face_image"><img src="data:image/jpeg;base64," /></div>-->
+							<!--<div class="face_location">门口摄像头</div>-->
+							<!--<div class="face_location">2017-10-18 14:04:33</div>-->
+							<!--<div class="face_icon faceIcon1" style="background-image: url(/CorsFace/Themes/Images/ICON/facetrackstatus3.png);"></div>-->
+						<!--</div>-->
+					</div>
+					<div class="realtime_content_left">
+
+					</div>
+					<div class="realtime_content_right rightIcon">
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

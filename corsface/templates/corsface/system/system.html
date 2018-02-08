@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menu_Manage</title>
+    <link rel="stylesheet" href="/static/Themes/Style/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/CorsFace/Themes/Style/style.css" /> -->
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/uploadjs/jquery.ui.widget.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/uploadjs/jquery.fileupload.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/uploadjs/jquery.iframe-transport.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/layer.js" type="text/javascript"></script>
+    <script src="/static/JS/V30_System_Config.js" type="text/javascript"></script>
+
+    <style>
+        td {
+            height: 40px;
+            padding: 0 10px;
+        }
+
+        #tblConfig td input {
+            width: 70%;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            scrollbar-face-color: #006a98;
+            scrollbar-base-color: #003f5a;
+            scrollbar-arrow-color: #006a98;
+            color: #83CCE4;
+        }
+
+        .camera > div, .identifys > div, .acquisitions > div {
+            float: left;
+            margin: 10px;
+            text-align: center;
+            color: whitesmoke;
+        }
+
+        .group_content {
+            margin-left: 20px;
+            width: 96%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .CameraSet_content {
+            overflow: auto;
+        }
+
+        .deviceText {
+            /*position: absolute;*/
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            background: #5ca0b8;
+            padding: 0 5px;
+            letter-spacing: 8px;
+            color: whitesmoke;
+            height: 29px;
+            line-height: 29px;
+            vertical-align: bottom;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .deviceTextAfter {
+            content: '';
+            width: 63px;
+            height: 29px;
+            display: inline-block;
+            vertical-align: bottom;
+            background: url("/static/Themes/Images/Other/title_bg.png") no-repeat center;
+        }
+
+        #showID1 {
+            border-top: 2px solid #7eccef;
+            margin-top: 3px;
+            font-size: 12px;
+        }
+
+        #showID2 {
+            border-top: 2px solid #7eccef;
+            margin-top: 3px;
+            font-size: 12px;
+        }
+
+        #showID3 {
+            border-top: 2px solid #7eccef;
+            margin-top: 3px;
+            font-size: 12px;
+        }
+
+        #showID4 {
+            border-top: 2px solid #7eccef;
+            margin-top: 3px;
+            font-size: 12px;
+        }
+
+        #showID5 {
+            border-top: 2px solid #7eccef;
+            margin-top: 3px;
+            font-size: 12px;
+        }
+
+        #saveSysConfig {
+            margin-left: -50%;
+            border: 2px solid #002c40;
+            border-radius: 5px;
+            color: whitesmoke;
+            background: #005982;
+            width: 180px;
+            height: 30px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        input {
+            color: whitesmoke;
+            box-sizing: border-box;
+            padding-left: 10px;
+        }
+
+        tr a {
+            color: #00a0e9;
+            margin-left: 20px;
+        }
+    
+    </style>
+
+</head>
+
+<body>
+<div class="main" style="margin:auto;width: 96%;">
+    <div class="main_header bg_header_1">
+        <div class=" bg_header_2">
+            <div class=" bg_header_3">系统配置</div>
+        </div>
+    </div>
+    <div class="CameraSet_content content">
+        <div class="person_msg" style="border-top:0px;margin-top: -20px;">
+            <table style="width:100%" id="tblConfig">
+                <!-- 系统设置 -->
+                <tr>
+                    <td colspan="2" cellspacing="2" style="height:110px;">
+                        <div class="CameraSet_content content" style="border:none;">
+                            <div class="deviceText">系统相关设置</div>
+                            <span class="deviceTextAfter"></span>
+                            <div id="showID1" class="acquisitions clearfix"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="10%" style="text-align:right">Logo：</td>
+                    <td width="70%"><img id="showLoge" style="width: 200px;"
+                                         {%if data_list.site_logo %}
+                                         src="{{data_list.site_logo}}"
+                                         {% else %}
+                                         src="/static/Themes/Images/Default/logo.png"
+
+                                         {% endif %}
+
+                    ><!-- <input id="fileupload" name="upload"
+                            style="margin-left: -200px;width: 200px;opacity: 0;fill-opacity: 0;" type="file" value="上传"
+                    /> --></td>
+                    <td></td>
+                    <input type="hidden" id="img_upload_base">
+                </tr>
+                <tr>
+                    <td width="10%" style="text-align:right">网站名称：</td>
+                    <td width="70%"><input type="text" id="site_name" value="{{data_list.site_name}}"
+                                           style="width:500px"/></td>
+                                           <td></td>
+                </tr>
+                <tr>
+                    <td width="10%" style="text-align:right">网站号：</td>
+                    <td width="70%"><input type="text" id="version" value="{{data_list.version}}" style="width:500px"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="10%" style="text-align:right">版权信息：</td>
+                    <td width="70%"><input type="text" id="copy_right" value="{{data_list.copyright}}"
+                                           style="width:500px"/></td><td></td>
+                </tr>
+                <tr>
+                    <td width="10%" style="text-align:right">报警阈值：</td>
+                    <td width="70%"><input type="text" id="alert_weight" value="{{data_list.alert_weight}}"
+                                           style="width:500px"/></td><td></td>
+                </tr>
+                <!-- 地图设置 -->
+                <!-- <tr>
+                    <td width="10%" style="text-align:right">地图启用类别：</td>
+                    <td width="70%">
+                        <select id="map_type" style="background-color: #002c40;color: white;border:1px solid #83cce4;width: 90px;height:30px;">
+                            <option value="2" {% ifequal data_list.map_type 2 %} selected {% endifequal %}>不启用</option>
+                            <option value="1" {% ifequal data_list.map_type 1 %} selected {% endifequal %}>在线地图</option>
+                            <option value="0" {% ifequal data_list.map_type 0 %} selected {% endifequal %}>离线地图</option>
+                        </select>
+                        <span id="o"></span>
+                    </td>
+                </tr> -->
+            </table>
+        </div>
+        <div class="comclass" id="operate" style="text-align: center; padding:20px 0">
+            <input id="saveSysConfig" type="button" value="保存">
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

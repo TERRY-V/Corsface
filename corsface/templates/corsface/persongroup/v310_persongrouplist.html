@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css"/>
+		<link rel="stylesheet" href="/static/Themes/Style/depoly.css">
+		<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+		<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="/static/Include/jquery/jquery.cookie.js"></script>
+    	<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/JS/persongroup/v310_persongroup_list.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			
+			.layui-layer-title{
+				height: 40px;
+				line-height: 40px;
+			}
+			.table_wrap{
+				height:100%;
+			}
+		</style>
+	</head>
+	<body onload="setTable()">
+		<!--导航-->
+
+		<!-- <div class="group_select">
+			<div class="main_alarm">
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">
+							人物组
+						</div>
+						<a class="btn-social-icon btn btn-del editPersonGroup" id="edit_person_btn"></a>
+						<a class="btn-social-icon btn btn-del deletePersonGroup" id="delete_person_btn"></a>
+						<a class="btn btn-social-icon btn-add addPersonGroup" id="add_person_btn"></a>
+					</div>
+				</div>
+				<div class="group_content">
+					<ul id="treeDemo" class="ztree"></ul>
+				</div>
+			</div>
+		</div> -->
+		<div id="delete_person_list">
+			<ul>
+			</ul>
+			<div style="text-align: right"><input type="button" id="delete_btn" style="width: 60px" value="删除"></div>
+		</div>
+		<div id="edit_person_list">
+			<ul>
+			</ul>
+			<div style="text-align: right"><input type="button" id="edit_btn" style="width: 60px" value="保存更改"></div>
+		</div>
+		<div class="table_wrap">
+			<div class="main_addRule">
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3" id="group_name">人物分组管理</div>
+					</div>
+				</div>
+				<div class="group_content">
+					
+					<div class="filtrate_content" style="padding:20px 10px 10px 10px;overflow: hidden">
+								<div class="filtrate_input filtrate_input_inline" style="font-weight:100; margin-left:10px" >
+									<!-- 基本信息： -->
+									<input id="txtGroupInfo" type="text"  placeholder="分组名称" style="width:180px;background-color: transparent;background-image:url(/static/Themes/Images/ICON/search.png);background-repeat:no-repeat;background-position:right;padding-right:20px">
+								</div>
+								
+								<div class="filtrate_input filtrate_input_inline">
+								</div>
+
+							</div>
+					<div >
+						<!-- <div class="line_text">列表</div> -->
+						<div class="clearfix">
+							
+							<input type="button" class="allot_person right" onclick="add_persongroup()" style="margin-bottom:20px;margin-right:40px;" value="添加分组">
+							
+						</div>
+						<!--<div class="show_filtrate">-->
+							<!--<span id="total_count" class="total_count left"></span>-->
+							<!--<span id="table_refresh"></span>-->
+							<!--<span id="table_filtrate"></span>-->
+							<!--<ul id="table_filtrate_li" class="hide"></ul>-->
+						<!--</div>-->
+						<div id="divListTable" class="comclass1" style="margin:0px 20px">
+							<table class="dataTable">
+		                        <thead style="border-bottom: 2px solid white">
+		                        <!-- <th>
+		                            <input type="checkbox" onclick="CheckAll(this)">
+		                        </th> -->
+		                        <th>分组id</th>
+		                        <th>分组名称</th>
+		                        <th>分组备注</th>
+		                        <th>分组人数</th>
+		                        <!-- <th>创建时间</th> -->
+		                        <th>操作</th>
+		                        </thead>
+		                        <tbody class="tbody">
+							
+		                        </tbody>
+		                    </table>
+		                    <div>
+		                        <div align="right" style="margin:20px 50px" class="page">
+		                            <input id="page" type="button" name="start" value="首页" onclick="initPageButton('start')"/>
+		                            <input id="page1" type="button" name="last" value="上一页" onclick="initPageButton('last')"/>
+		                            <input type="text" vale=1 id="nowpage" style="width: 30px;height: 25px;">&nbsp<span class="span_white">/</span>&nbsp<span id="totalPage" class="span_white"></span>
+		                            <input id="page2" type="button" name="next" value="下一页" onclick="initPageButton('next')"/>
+		                            <input id="page3" type="button" name="end" value="尾页" onclick="initPageButton('end')"/>
+		                            &nbsp<span class="span_white" id="numTotal"></span>
+		                        </div>
+		                    </div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+
+		<div id="addPersonGroup" class="hide">
+		</div>
+		<div class='hide'>
+			<div id="divForm" class="comclass">
+	            <table>
+	                <tbody>
+	                    <tr>
+	                        <td style="width:150px;">
+	                            分组名称
+	                            <span style="color:red;">*</span>
+	                        </td>
+	                        <td style="text-align:left;">
+	                            <input type="text" id="name" style="width:50%" maxlength="30">
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td style="width:150px;">
+	                            分组标记
+	                        </td>
+	                        <td style="text-align:left;">
+	                            <input type="text" id="remark" style="width:50%" maxlength="40">
+	                        </td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	        </div>
+		</div>
+		<div class="iForm">
+			<div class="recognise_table" style="height:170px">
+				<div class="table_title"> 
+					<p>&nbsp分组布控</p>
+					<span class="layui-layer-setwin">
+						<a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;" style="border:0px"></a>
+					</span>
+				</div>
+				<!-- <div class="table_content dataTable">
+					<table class="tb">
+						<thead>
+							<tr>
+								<th>分组名称</th>
+								<th>识别端</th>
+								<th>布控操作</th>
+							</tr>
+						</thead>
+						<tbody class="deploy_body">
+							<tr>
+								<td>北京办公室
+								</td>
+								<td>北京识别端</td>
+								<td>未布控</td>
+								<td>布控/取消布控/重新布控</td>
+							</tr>
+							<tr>
+								<td>
+									北京办公室
+								</td>
+								<td>欧阳子陵</td>
+								<td>未布控</td>
+								<td>布控/取消布控/重新布控</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div> -->
+				<div style="text-align:center; display:block;height:40px; width:100%">
+					<div class="filtrate_input" style="margin-top:10px" >
+						识别端：
+						<div class="sel_wrap" style="width:180px; margin-top:10px">
+							<label>识别端选择</label>
+							<select class="select" name="recognise">
+								<option value="2">172识别端</option>
+								<option value="1">女</option>
+								<option value="-1">未知</option>
+							</select>
+						</div>
+						<input type="button" onclick="add_deploy_group()" value="一键布控"/>
+					</div>
+				</div>
+				
+				<!-- <div class="table_content dataTable">
+					识别端：
+					<select name="recognise" id="">
+						<option value="0">请选择识别端</option>
+						<option value="1">172识别端</option>
+						<option value="2">172识别端-测试</option>
+					</select>
+					  
+				</div> -->
+				<div class="table_foot">
+					<input type="button" class="cancle" value="关闭">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

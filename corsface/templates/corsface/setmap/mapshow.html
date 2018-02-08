@@ -1,0 +1,217 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<!-- <link rel="stylesheet" href="/CorsFace/Themes/Style/buttons.css"> -->
+<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css"/>
+
+<link rel="stylesheet" type="text/css" href="/static/Themes/Style/MapShow.css"/>
+<link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css">
+
+<script src="/static/Include/api_v2.0.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="/static/Include/jquery-1.9.1.min.js"
+        type="text/javascript" charset="utf-8"></script>
+<script src="/static/Include/jquery/jquery.cookie.js"></script>
+<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+<script src="/static/Include/Util.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="/static/Include/ajax-pushlet-client.js"
+        type="text/javascript" charset="utf-8"></script>
+<script src="/static/JS/setmapjs/mapshow.js"
+        type="text/javascript" charset="utf-8"></script>
+<script src="/static/Include/uploadjs/jquery.ui.widget.js"
+        type="text/javascript" charset="utf-8"></script>
+<script src="/static/Include/uploadjs/jquery.fileupload.js"
+        type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+<script src="/static/Include/uploadjs/jquery.iframe-transport.js"
+        type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        scrollbar-face-color: #006a98;
+        scrollbar-base-color: #003f5a;
+        scrollbar-arrow-color: #006a98;
+    }
+
+    .OLMap {
+        width: 100%;
+        height: 25px;
+        border-bottom: 2px solid #7ECCEF;
+    }
+
+    .MapType {
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 15px;
+        font-weight: bold;
+        background: #002c40;
+        padding: 0 5px;
+        padding-right: 0px;
+        letter-spacing: 8px;
+        color: #6694ae;
+    }
+
+    .deviceText {
+        /*position: absolute;*/
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+        background: #5ca0b8;
+        padding: 0 5px;
+        letter-spacing: 8px;
+        color: whitesmoke;
+        height: 29px;
+        line-height: 29px;
+        vertical-align: bottom;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .deviceTextAfter {
+        border-radius: 0;
+        width: 63px;
+        height: 29px;
+        display: inline-block;
+        vertical-align: bottom;
+        background: url("/static/Themes/Images/Other/title_bg.png") no-repeat center;
+    }
+
+    .layui-layer-content {
+        color: white;
+    }
+
+    .layui-layer-close1 {
+        border: 0px;
+    }
+
+    .layui-layer-setwin {
+        right: -25px;
+    }
+
+    .layui-layer-btn1 {
+        width: 43px;
+    }
+
+    .layui-layer-btn0 {
+        width: 43px;
+    }
+</style>
+<!--  onload="Inti_MapShow()" -->
+<body onload="Inti_MapShow()">
+<div class="Inti_MapShow" style="margin:auto;width: 96%;">
+    <div class="monitoring_header bg_header_1">
+        <div class=" bg_header_2">
+            <div class=" bg_header_3">地图设置</div>
+
+        </div>
+    </div>
+    <!-- <div class="text"></div> -->
+    <div class="monitoring_rtsp">
+        <div style="padding: 12px;">
+            <div style="width:250px;color: #fff">
+                是否启用地图：
+                    &nbsp;
+                    <input type="radio" name="setmaptype" value="1" onclick="setmaptype(1)"><span>启用</span>
+                                    &nbsp;
+                    <input type="radio" name="setmaptype" value="0" onclick="setmaptype(0)"><span>禁用</span>
+            </div>
+        </div>
+
+
+        <span class="deviceText">在线地图</span><span class="deviceTextAfter"></span>
+        <div
+                style="overflow: hidden; margin-top: 3px; border-top: 2px solid #7eccef;" id="online">
+            <!-- <div class="Map_PhotoShow" style="height: 300px">
+                <div class="Map_PhotoShow_Top">
+                    <span class="Map_Photo_Font" style="font-size: 15px;">百度地图</span><br>
+                    <span class="Map_Photo_Font">(在线地图)</span>
+                </div>
+                <div class="Map_PhotoShow_Img">
+                    <div class="sign" id="baidu"></div>
+                    <img class="Map_PhotoShow_Img" id="BD"
+                        src="/static/Themes/Images/Other/bdmap.png"
+                        style="height: 220px; width: 300px;">
+                </div>
+            </div> -->
+        </div>
+        <div style="padding-bottom: 3px; border-bottom: 2px solid #7eccef;">
+            <span class="deviceText">离线地图</span><span class="deviceTextAfter"></span>
+        </div>
+        <div class="Map_Photoup" style="margin-top: 3px">
+            <div class="Map_Photo_Upload">
+                <!-- <img alt=" " src="../../../Attach/Upload/AddMap.png" style="background-color: "> -->
+                <!-- <input type="file" id="fileupload" name="upload" mutiple /> <input
+                    type="button" id="uploadTest"
+                    class="button  button-rounded uploadTest"
+                    style="background-color: transparent;" value="添加地图" /> -->
+                <button type="button" class="button-upload"
+                        style="background: url(/static/Themes/Attach/Upload/AddMap.png)"
+                        onclick="show('light')"></button>
+            </div>
+
+        </div>
+        <!--  -->
+        <div id="light" class="white_content">
+            <div class="close">地图编辑</div>
+            <div class="con">
+
+                <table class="dgdTable">
+                    <tr>
+                        <td style="width: 150px;">地图名称：</td>
+                        <td style="text-align: left;"><input type="text"
+                                                             id="AddressName" name="AddressName"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">选择图片：</td>
+                        <td>
+                            <div class="input_file" style="margin-top: 20px;">
+                                <img id="photo" src="/static/Themes/Attach/Upload/AddMap.png"
+                                     style="display: block;"/>
+                            </div>
+                            <input type="file" id="file" name="upload"
+                                   onchange="primg(this,this.id,'photo');"> <input
+                                type="hidden" class="SAID" id="SAID" value="" name="SAID">
+                        </td>
+                        <!-- <td id="imgPreview" style="width:110px;height:110px;"></td> -->
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">描述信息：</td>
+                        <td style="text-align: left;">
+                            <div class="MNotes"></div>
+                            <textarea
+                                    clase="MNotes" id="MNotes" name="MNotes" maxlength="200"
+                                    rows="5" style="resize: none; width: 270px; margin-top: 30px;"></textarea></td>
+                        <!-- <td id="imgPreview" style="width:110px;height:110px;"></td> -->
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="btn" style="text-align: left;"><input
+                                type="button" id="button" name="button" value="上传" onclick="check();"/> <input
+                                type="button" name="close" value="取消" onclick="hide('light')"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+
+            </div>
+        </div>
+    </div>
+    <div id="mapShow" style="display: none">
+        <div class="showMapPreview">
+            <img id="map_img" src="">
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

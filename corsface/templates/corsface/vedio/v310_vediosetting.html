@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_videoSetting.css" />
+<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/static/Include/JS/respond.js"></script>
+<![endif]-->
+<script src="/static/AdminLTE-2.4.2/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/JS/vediosetting/v310_vediosetting.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="/static/System/Frame/JS/baiduMap.js" type="text/javascript" charset="utf-8"></script> -->
+<style type="text/css">
+    html,
+    body {
+        scrollbar-face-color: #006a98;
+        scrollbar-base-color: #003f5a;
+        scrollbar-arrow-color: #006a98;
+    }
+    object{
+        background-color: #000000;
+    }
+</style>
+
+<body>
+<div class="main clearfix">
+    <div class="main_camera">
+        <div class="camera_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3"><em class="cameraHead"></em>摄像头 <i></i></div>
+            </div>
+        </div>
+        <div class="camera_content">
+            <div class="camera_change">
+                <!--<div class="camera_change_group">-->
+                    <!--<div class="camera_change_group_head">-->
+                        <!--前门摄像头<span>V</span>-->
+                    <!--</div>-->
+                    <!--<ul>-->
+                        <!--<li>前门摄像头1</li>-->
+                        <!--<li>前门摄像头1</li>-->
+                        <!--<li>前门摄像头1</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="camera_change_group">-->
+                    <!--<div class="camera_change_group_head">-->
+                        <!--前门摄像头-->
+                    <!--</div>-->
+                    <!--<ul>-->
+                        <!--<li>前门摄像头1</li>-->
+                        <!--<li>前门摄像头1</li>-->
+                        <!--<li>前门摄像头1</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            </div>
+            <div id="camera_Bmap" class="camera_Bmap hide"></div>
+        </div>
+    </div>
+    <div class="main_monitoring">
+        <div class="monitoring_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">监控视频<span id="layout9"></span><span id="layout4"></span><span id="layout3"></span><span id="layout1"></span></div>
+            </div>
+        </div>
+        <div class="monitoring_rtsp">
+            <div class="monitoring_rtsp_content rtsp_layout1">
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+            </div>
+            <div class="monitoring_rtsp_content rtsp_layout12 hide">
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false'width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+            </div>
+            <div class="monitoring_rtsp_content rtsp_layout22 hide">
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false'width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false'width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+            </div>
+            <div class="monitoring_rtsp_content rtsp_layout23 hide">
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+                <div class="monitoring_vlc">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videola.org" id='vlc1' events='false' width="98%" height="98%">
+                        <param name='mrl' value='' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='true' />
+                        <param name='controls' value='false' />
+                        <param name='branding' value='false' />
+                        <param name="bgcolor" value="black" />
+                    </object>
+                    <div class="monitoring_vlc_title">
+                        (无)
+                    </div>
+                </div>
+            </div>
+            <div class="footer_btn">
+                <span></span>
+                <input type="button" id="videoSetting_save" value="应用">
+                <input type="button" id="videoSetting_reset" value="重置">
+                <input type="button" id="videoSetting_close" value="返回">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css" />
+		<link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+		<!-- ZTree样式 -->
+		<link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+
+		<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/jquery/jquery.cookie.js"></script>
+		<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/FormEngine.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 弹出框 JS及样式 -->
+		<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+		<!-- ZTree JS -->
+		<script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+		<script type="text/javascript" src="/static/Include/zTree/jquery.ztree.excheck.min.js"></script>
+		
+
+		<script src="/static/JS/rolemanagerjs/role.js"></script>
+		<style>
+			.btnBar{
+				margin-bottom:0;
+				padding-top: 0;
+			}
+			.person_msg{
+				padding-top: 0;
+			}
+			th{
+				background-color: #09354c;
+				border-top: 2px solid #476a7d;
+				border-bottom: 2px solid #07283a;
+			}
+			tr{
+				border-bottom: 1px solid #1a455c;
+			}
+			.iFrom{
+				width: 100%;
+				height:100%;
+				top:0;
+				display: none;
+				position: absolute;
+				background-color: rgba(0,0,0,0.3);
+			}
+			.iFrom_T{
+				width: 426px;
+				height: 200px;
+				margin-top: 18%;
+				margin-left: 32%;
+			}
+			.iFrom_Top{
+				padding-left: 20px;
+				
+				height: 50px;
+				background-color: #06405c;	
+				color: white;
+				line-height: 42px;
+				font-weight: 600;
+				font-size: 18px;
+			}
+			.iFrom_In{
+				box-sizing:border-box;
+				border: 2px solid #00ace4;
+				width: 100%;
+				height: 196px;
+				background-color: #002c40;
+			}
+			.iFrom_Floot{
+				width: 100%;
+				height: 50px;
+				background-color: #06405c;
+			}
+			.hidd tr{
+				border: 0px;
+			}
+			.hidd input{
+				width: 211px;
+			}
+			.select_role{
+				background-color: rgba(0,0,0,0.3);
+				position: absolute;
+				width: 100%;
+				top: 0%;
+				height: 100%;
+				display: none;
+			}
+			.select_role_div{
+				margin-top: 18%;
+				margin-left: 30%;
+				width: 452px;
+				height: 354px;
+				background-color: #33444c;
+			}
+			.info_border{
+				box-sizing: border-box;
+				float: left;
+				border: 1px solid #83CCE4;
+				width: 156px;
+				height: 196px;
+				margin-left: 44px;
+				margin-top: 22px;
+				overflow: auto;
+			}
+			.select_role_div_top{
+				background-color: #06405c;
+				width: 100%;
+				height: 50px;
+			}
+			.select_role_div_info{
+				box-sizing: border-box;
+				border: 2px solid #00ace4;
+				background-color: #002c40;
+				width: 100%;
+				height: 304px;
+			}
+			.but{
+				width: 70px;
+			}
+			p{
+				color: white;
+				width: 150px;
+				overflow: hidden;
+				cursor:pointer;
+			}
+			.tit{
+				text-align: center;
+				border-bottom: 1px solid #83CCE4;
+				color: #27b5e4;
+			}
+			a{
+				width: 30px;
+			}
+			.layui-layer-close{
+				border:0px;
+			}
+			
+			.layui-layer-content{
+				color: white;
+			}
+			#page{
+				width: 50px;
+				height: 25px;
+				border: 0px;
+				border-radius:2px;
+			}
+			/* input{
+				border: 1px solid #00ace4;
+				margin-top:10px;
+				width: 68px;border-radius: 2;
+			} */
+		</style>
+	</head>
+
+	<body onload="Init_Role()">
+		<div class="main" style="">
+			<div class="main_addRule">
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">角色管理</div>
+					</div>
+				</div>
+
+				<div class="CameraSet_content content">
+					<div class="person_msg" style="border-top: none;">
+						<div class="btnBar">
+							<div class="search_wrap">
+								<input type="button" value="新建" onclick="new_role(-1)">
+								<input type="button" value="删除" id="listDelete" />
+							</div>
+						</div>
+						<!--<div class="show_filtrate">-->
+							<!--<span id="total_count" class="total_count left"></span>-->
+							<!--<span id="table_refresh"></span>-->
+							<!--<span id="table_filtrate"></span>-->
+							<!--<ul id="table_filtrate_li" class="hide"></ul>-->
+						<!--</div>-->
+						<div id="divListTable">
+						<table>
+							<thead>
+								<th><input type="checkbox" onclick="CheckAll(this)"></th>
+								<th>角色名称</th>
+								<th>角色英文名称</th>
+								<th>备注</th>
+								<!-- <th>角色用户</th> -->
+								<th>操作</th>
+							</thead>
+							<tbody id="tbody">
+							</tbody>
+						</table>
+						<div>
+							<div align="right" style="margin-right: 50px;" class="page">
+								
+								<input id="page" type="button" name="start" value="首页" onclick="initPageButton('start')" />
+								<input id="page" type="button" name="last" value="上一页" onclick="initPageButton('last')" />
+								<input type="text" vale=1 id="nowpage" onkeyup="value=value.replace(/[^\d]/g,'')" style="width: 25px;height: 25px;padding-left: 0px;text-align: center;">
+								/<span id="pagenumber"></span>
+								<input id="page" type="button" name="next" value="下一页" onclick="initPageButton('next')" />
+								<input id="page" type="button" name="end" value="尾页" onclick="initPageButton('end')" />
+								(共<span id="number"></span>条数据)
+							</div>
+						</div>
+						</div>
+					</div>
+					<div id="rightTree" width=260px align=left valign=top style="BORDER-RIGHT: #999999 0px dashed">
+						<ul id="tree" class="ztree" style="width:260px; overflow:auto;"></ul>
+					</div>
+					<!--表单-->
+
+					<div class="person_wrapper clearfix" id="personSelect">
+
+				</div>
+
+			</div>
+		</div>
+
+		</div>
+		<div class="iFrom">
+			<div class="iFrom_T" >
+				<div class="iFrom_Top" id=iFrom_Top >
+				</div>
+				<div class="iFrom_In">
+					<input type="hidden" id="hidden" value="0">
+					<table class="hidd" style="text-align: center;">
+						<tr>
+							<td>角色名称</td>
+							<td><input style="width: 211px;" type="text" id="role_name" position="请输入角色名称" maxlength="12"></td>
+						</tr>
+						<tr>
+							<td>角色英文名称</td>
+							<td><input style="width: 211px;" type="text" id="e_name" position="请输入角色英文名称" maxlength="20"></td>
+						</tr>
+						<tr>
+							<td>备注</td>
+							<td><input style="width: 211px;" type="text" id="remark" position="请输入备注" maxlength="50"></td>
+						</tr>
+					</table>
+				</div>
+				<div class="iFrom_Floot">
+				<center>
+					<input type="button" class="put" id="save_role" style="border: 1px solid #00ace4;margin-top:10px;
+				width: 68px;border-radius: 2;" value="确定">
+					<input type="button" class="put" id="close_role" style="border: 1px solid #00ace4;margin-top:10px;
+				width: 68px;border-radius: 2;" value="取消">
+				</center>
+				</div>
+			</div>
+		</div>
+		<div class="select_role">
+			<div class="select_role_div">
+				<div class="select_role_div_top" style="line-height:49px;font-weight: 600;font-size: 18px;color: white;text-align: center;">
+					用户管理
+				</div>
+				<div class="select_role_div_info">
+					<div style="width: 100%;height: 240px;">
+						
+						<div class="select_role_div_info_left info_border">
+							<div class="tit">全部用户(双击添加)</div>
+							<div id="info_left"></div>
+						</div>
+						<div class="select_role_div_info_right info_border">
+							<div class="tit">所属用户(双击移除)</div>
+							<div id="info_right"></div>
+						</div>
+					</div>
+					<div>
+						<center>
+							<input class="but" type="button" id="add_role" value="确定" onclick="add_role();">
+							<input class="but" type="button" id="cancel" value="取消" onclick="cancel();">
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

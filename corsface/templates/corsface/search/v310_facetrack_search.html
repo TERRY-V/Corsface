@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>人脸追踪详情</title>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css"/>
+    <link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="/static/Include/zTree/demo.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/traceEntranc.css"/>
+
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/alarmjs/alarmCameraTree.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.excheck.min.js"></script>
+    <!-- //图片剪切 -->
+    <script src="/static/Include/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="/static/Include/laydate/formateDate.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- <script src="/static/JS/facetrace/V31_FaceTraceEntrance.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="/static/JS/facetrace/v310_facetrack_search.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        .facetrack_face_media {
+            position: relative;
+            height: 250px;
+            border-bottom: 1px solid #5ca1ba;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #0a6f9e;
+            /*margin: 10px 0 10px;*/
+        }
+        .facetrack_media_BImg {
+            float: left;
+            width: 30%;
+            /*height: 100%;*/
+            text-align: center;
+            border: 1px solid #0a6f9e;
+        }
+        .facetrack_media_images {
+            margin-left: 32%;
+            height: 100%;
+            overflow: auto;
+        }
+        .facetrack_media_BImg img {
+            max-width: 488px;
+            max-height: 250px;
+            vertical-align: middle;
+            padding: 2px;
+        }
+        .facetrack_media_images img {
+            width: 100px;
+            height: 100px;
+            margin: 5px 10px;
+        }
+        .operateAear{
+            margin-right:30px;
+        }
+        #trace_filter > input{
+            width:140px;
+        }
+        .face_edit{
+            overflow: hidden;
+            padding: 0px 10px 0;
+        }
+        #imgPrepare{
+            margin-bottom: 10px;
+        }
+        .content{
+            overflow: hidden;
+        }
+        .back{
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: 600;
+            width: 40px;
+            height: 40px;
+            color: #83cce4;
+            background: url(/static/Themes/Images/ICON/face_detail_return.png) no-repeat center;
+            background-size: 70% 70%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="Init_facetrack_search()">
+<div class="main">
+   <!--  <div class="procedure">
+        <div><p id="use">使用流程</p></div>
+        <div>
+            <img alt="上传图片" src="/static/Themes/Images/ICON/trace/upload.png">
+        </div>
+        <p>1. 上传图片<br> 上传需要追踪的人物的图片（身份证、生活照、视频截图等）</p>
+        <div>
+            <img src="/static/Themes/Images/ICON/trace/arrows.png" alt="">
+        </div>
+
+        <div>
+            <img id="edit" src="/static/Themes/Images/ICON/trace/edit.png" alt="检测与编辑">
+        </div>
+        <p>2. 人脸检测与编辑<br>根据图片中检测出的人脸进行编辑</p>
+        <div>
+            <img src="/static/Themes/Images/ICON/trace/arrows.png" alt="">
+        </div>
+
+        <div>
+            <img src="/static/Themes/Images/ICON/trace/addPic.png" alt="选择图片">
+        </div>
+        <p>3. 人物检索和追踪<br>对上传照片中的人物进行检索与追踪</p>
+    </div> -->
+
+    <div class="alarm_media" id="showFaceTrack" style="display: none">
+        <div id="media_BImg" class="media_BImg">
+            <img src="" alt="">
+        </div>
+        <div id="media_images" class="media_images" style="top: 0px;">
+        </div>
+
+    </div>
+
+    <div class="operateAear">
+
+            <div class="main_header bg_header_1">
+                <div class=" bg_header_2">
+                    <div class=" bg_header_3">轨迹追踪
+                        <span class="back hide"></span>
+                    </div>
+                </div>
+            </div>
+        <div class="borderz content" >
+
+            <div class="trancediv">
+
+                <div id="imgPrepare">
+                    <div class="facetrack_face_media">
+                        <div class="facetrack_media_BImg">
+                            <img src="" alt="">
+                        </div>
+                        <div class="facetrack_media_images">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div  class="trancediv">
+                <!-- <div class="content_select_title">
+                    <h3 id="personTrace" class="act">轨迹路径</h3>
+                </div> -->
+                <div class="face_edit">
+                    
+                    <div class="face_filter act" id="trace_filter">
+                        <!-- 识别端：
+                        <select name="recognize" id="recognizeT">
+                        </select> -->
+                        <div class="" style="display: inline-block">
+                            <span>摄像头：</span>
+                            <div class="sel_wrap" >
+                                <label id="citySelName">全部</label>
+                                <input id="citySel" class="select"  value=""  onclick="showMenu(); return false;"/>
+                            </div>
+                            <div id="menuContent" class="menuContent" style="z-index: 10000;display:none; position: fixed;">
+                                <ul id="treeDemo" class="ztree" style="margin-top:0; width:122px; height: 200px;"></ul>
+                            </div>
+                        </div>
+                        时间：<input type="text" id="startTime"> - <input type="text" id="endTime">
+                        <input type="button" id="getTrace" value="轨迹追踪">
+                    </div>
+                </div>
+            </div>
+            <div class="trancediv" style="height: 556px;">
+                <div class="form_title" style="margin: 10px 20px 0;border: 1px dashed #00ace4;">
+                    <!--<h3 id="filter_type">人物检索</h3>-->
+                </div>
+                <div class="createAndtrace" id="traceFilter">
+                    <div class="trace_wrap">
+                        <div class="trace_wrap_top"></div>
+                        <div class="trace_line"></div>
+                        <div class="trace_wrap_bottom"></div>
+                        <!--<div class="facetrace_module">-->
+                            <!--<div class="facetrace_module_img">-->
+                                <!--<img src="/static/Upload/photo/e006ebea-08c8-11e8-80e0-408d5c8717d4.jpg" alt="">-->
+                            <!--</div>-->
+                            <!--<div class="facetrace_module_info">-->
+                                <!--<div class="facetrace_module_name">里尔</div>-->
+                                <!--<div class="facetrace_module_camera">门口摄像头</div>-->
+                                <!--<div class="facetrace_module_time">2018-1-2 08:09:11</div>-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modifyPic"></div>
+<div id="createPersonByImg"></div>
+</body>
+
+</html>

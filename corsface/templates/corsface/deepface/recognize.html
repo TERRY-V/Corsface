@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>服务器管理</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 		<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script> -->
+    <script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/system/ServerRecogize.js"></script>
+
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            scrollbar-face-color: #006a98;
+            scrollbar-base-color: #003f5a;
+            scrollbar-arrow-color: #006a98;
+        }
+
+        .btnBar {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+
+        .person_msg {
+            padding-top: 0;
+        }
+    </style>
+</head>
+<body onload="Init_ServerCapture()">
+
+<div class="main" id="list" style="position: absolute;width: 100%;top:0%;height: 100%;display:block;">
+    <div class="main_addRule">
+        <div class="main_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">识别端管理</div>
+            </div>
+        </div>
+
+        <div class="CameraSet_content content">
+            <div class="person_msg clearfix" style="border-top: none;">
+                <input type="text" name="" style="float:left;" id="search_server" value="" placeholder="输入名称/appkey"/>
+                <input type="button" name="" style="width: 80px;margin:0 5px;float:left" class="go_search"
+                       id="go_search" value="查询"/>
+            </div>
+            <div class="person_msg clearfix">
+                <div class="line_text">列表</div>
+                <div class="btnBar">
+                    <input type="button" name="form_Add" id="form_Add" value="新建" onclick="form_Add()"/>
+                    <!--<input type="button" value="删除" id="listDelete"/>-->
+                </div>
+                <!--<div class="show_filtrate">-->
+                <!--<span id="total_count" class="total_count left"></span>-->
+                <!--<span id="table_refresh"></span>-->
+                <!--<span id="table_filtrate"></span>-->
+                <!--<ul id="table_filtrate_li" class="hide"></ul>-->
+                <!--</div>-->
+                <div id="divListTable">
+                    <table class="col-sm-12 dataTable table-bordered" cellspacing="0">
+
+                        <thead>
+                        <!--<th>-->
+                            <!--&lt;!&ndash;<input type="checkbox" onclick="CheckAll(this)">&ndash;&gt;-->
+                        <!--</th>-->
+                        <th>识别端名称</th>
+                        <th>识别端URL</th>
+                        <th>APPKEY</th>
+                        <th>使用状态</th>
+                        <th>操作</th>
+                        </thead>
+                        <tbody class="tbody">
+
+                        </tbody>
+                    </table>
+                        <div align="right" style="margin-right: 50px;" class="page">
+                            <input id="page" type="button" name="start" value="首页" onclick="initPageButton('start')"/>
+                            <input id="page1" type="button" name="last" value="上一页" onclick="initPageButton('last')"/>
+                            <input type="text" vale=1 id="nowpage" style="width: 30px;height: 25px;">
+                            <input id="page2" type="button" name="next" value="下一页" onclick="initPageButton('next')"/>
+                            <input id="page3" type="button" name="end" value="尾页" onclick="initPageButton('end')"/>
+                                               (共<span id="number"></span>条数据)
+
+                        </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="main" id="nr" style="position: absolute;width: 100%;top:0%;height: 100%;display:none;">
+    <div class="main_addRule">
+        <div class="main_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">编辑识别端</div>
+            </div>
+        </div>
+        <div class="CameraSet_content content">
+            <div id="divForm" class="comclass1">
+                <div class="form_title"><h3>识别端信息</h3></div>
+
+                <table>
+                    <tbody>
+                    <tr class="formRow">
+                        <td style="width:150px;"><label>设备名称<span style="color:red;">*</span></label></td>
+                        <td style="text-align:left;width:576px;"><input type="text" id="GName" style="width:100%;"
+                                                                        maxlength="100" value="" required=""></td>
+                    </tr>
+                    <tr class="formRow">
+                        <td style="width:150px;"><label>识别端URL<span style="color:red;">*</span></label></td>
+                        <td style="text-align:left;width:576px;"><input type="text" id="deepfaceurl" style="width:100%;"
+                                                                        maxlength="100" value="" required=""></td>
+                    </tr>
+                    <tr class="formRow">
+                        <td style="width:150px;"><label>软件版本<span style="color:red;">*</span></label></td>
+                        <td style="text-align:left;width:150px;">
+                            <select id="SVersion" style="width:100%;" required="" val="">
+
+                            </select></td>
+                    </tr>
+
+                    <tr class="formRow" style="display: block;">
+                        <td style="width:150px;"><label>APPKEY</label></td>
+                        <td style="text-align:left;width:576px;">
+                            <input type="text" id="keycode" style="width:100%;" maxlength="50" value=""></td>
+                    </tr>
+                    <tr class="formRow">
+                        <td style="width:150px;"><label>备注</label></td>
+                        <td style="text-align:left;width:576px;">
+                            <input type="text" id="VSNode" style="width:100%;" maxlength="50" value=""></td>
+
+                        </td>
+                    </tr>
+                    <tr class="formRow">
+                        <td style="width:120px;">
+
+                        </td>
+                        <td style="text-align:left;width:calc(50% - 240px);">
+                            <input type="button" id="form_close" value="返回"
+                                   onclick="closeform()"/>
+                            <input type="button"  value="保存"
+                                   onclick="newform()">
+                        </td>
+                    </tr>
+                    <input type="hidden" id="id" value=""/>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

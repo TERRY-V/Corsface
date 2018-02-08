@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>人脸记录详情</title>
+    <link rel="stylesheet" type="text/css" href="/CorsFace/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/CorsFace/Themes/Style/style.css" />
+    <link rel="stylesheet" type="text/css" href="/CorsFace/Themes/Style/V31_faceInfo.css" />
+
+    <style type="text/css">
+        .HBBtn{margin-top : 160px !important;}
+        .content_main_imgs{width : calc(80% - 440px);}
+        .goback{position: absolute;right: 5px;top: 2px;}
+        .media_BImg{
+		    float: left;
+		    width: 50%;
+		    height: 100%;
+		    text-align: center;
+		    border: 1px solid #00ace4;
+		    box-sizing: border-box;
+		    position: relative;
+		    padding-top: 0px; 
+		}
+        #media_BImg img{
+        	max-width:295px;
+            max-height:204px;
+        }
+        .media_images {
+        	position:absolute;
+		}
+		.media_images_wrap{
+			width: 50%;
+		    float: left;
+		    height: 100%;
+		    overflow: hidden;
+		    position: relative;
+		}
+
+
+    </style>
+    <!--处理ie8兼容-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/CorsFace/Include/respond.js"></script>
+    <![endif]-->
+    <script src="/CorsFace/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/CorsFace/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS/V31_TraceDetail.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="/CorsFace/Include/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+
+<body>
+    <div class="main_faceINfo">
+        <div class="camera_msg" id="camera_msg" style="height:30px">
+            
+        </div>
+        <div class="alarm_media">
+            <div class="content_head">
+                人脸图像
+            </div>
+            <div id="media_BImg" class="media_BImg">
+                <img src="" alt="">
+            </div>
+            <div class="media_images_wrap">
+	            <div id="media_images" class="media_images">
+	            </div>
+            </div>
+            <div class="detail_btn" id="detail_btn">
+
+
+            </div>
+        </div>
+
+            <!--<div class="faceInfo_camera">-->
+                <!--摄像头：<span id="face_camera">门口摄像头001</span><span id="face_time">2017-04-30 12:13:22</span>-->
+            <!--</div>-->
+            <!--<div class="faceInfo_getcontent">-->
+                <!--<div class="content_head">-->
+                    <!--抓取记录-->
+                <!--</div>-->
+                <!--<div class="content_main">-->
+                    <!--<div class="content_main_bigImg">-->
+                        <!--<img src="" />-->
+                    <!--</div>-->
+                    <!--<div class="content_main_imgs" id="pcontent_main_imgs">-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                    <!--</div>-->
+                    <!--<div class="content_main_btn">-->
+                        <!--<div id="tracePerson">-->
+                            <!--追踪人物-->
+                        <!--</div>-->
+                        <!--<div id="createPerson">-->
+                            <!--创建人物-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="faceInfo_result">
+                <div class="content_head">
+                    相似人物
+                </div>
+                <div class="result_content">
+
+                    <div class="result_info">
+                        <div class="result_info_wrap">
+                            <div class="result_card">
+                                <div class="result_confidence">50%可信度</div>
+                                <div class="result_img">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="result_name">龙傲天</div>
+                                <div class="result_id">61002835475269233</div>
+                                <div class="result_btn">
+                                    <div class="result_detail" data-id="">详情</div>
+                                    <div class="result_add" data-id="">添加</div>
+                                </div>
+                            </div>
+                            <div class="result_card"></div>
+                            <div class="result_card"></div>
+
+                        </div>
+                    </div>
+                    <div class="realtime_content_left"></div>
+                    <div class="realtime_content_right rightIcon"></div>
+                </div>
+
+            </div>
+    </div>
+</body>
+
+</html>

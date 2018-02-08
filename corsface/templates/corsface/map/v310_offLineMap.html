@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_offlineMap.css" />
+<script src="/static/Include/api_v2.0.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hlrOyIkzhSAYj7LpG4izpFZo1qrYd5Gm"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/static/Include/JS/respond.js"></script>
+<![endif]-->
+<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/Include/ajax-pushlet-client.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+<script src="/static/JS/map/v310_offLineMap.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/Include/jquery/jquery.cookie.js"></script>
+<script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+    html,
+    body {
+        scrollbar-face-color: #006a98;
+        scrollbar-base-color: #003f5a;
+        scrollbar-arrow-color: #006a98;
+    }
+</style>
+
+<body>
+<div class="main">
+    <div id="SurImg" class="hide"><img src="" alt=""></div>
+
+    <div id="alarm_alert" class="hide">
+
+        <div class="warning_info_alert">
+            <div class="warning_info_alert_level" style="background-image: url(/static/Themes/Images/ICON/alarm1.png);">一级警报</div>
+            <div class="warning_info_alert_img"><img src="" /></div>
+            <div class="warning_info_alert_name">name</div>
+            <div class="warning_info_alert_name">重案组</div>
+        </div>
+    </div>
+    <div class="main_camera">
+        <div class="camera_header">
+            摄像头<span class="close_camera"></span>
+        </div>
+        <div class="camera_content">
+            <div class="camera_change">
+                <div class="camera_change_group_head">
+                    <span></span>前门摄像头
+                </div>
+                <div class="camera_change_group_head">
+                    <span></span>前门摄像头
+                </div>
+                <div class="camera_change_group_head">
+                    <span></span>前门摄像头
+                </div>
+            </div>
+            <div id="camera_Bmap" class="camera_Bmap hide">
+
+            </div>
+        </div>
+    </div>
+    <div class="main_warning">
+        <div class="warning_header bg_header_1">
+
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">报警记录</div>
+            </div>
+        </div>
+        <div class="warning_content_wrap">
+            <div class="warning_content"></div>
+        </div>
+    </div>
+    <div class="main_monitoring">
+        <div class="monitoring_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">地图监控<span class="pattern"></span></div>
+            </div>
+        </div>
+        <div class="monitoring_rtsp" id="mainMap">
+            <div class="monitoring_rtsp_photo">
+                <img id="map_img" src=""/>
+            </div>
+
+        </div>
+    </div>
+    <div class="main_realtime">
+        <div class="realtime_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">实时抓拍</div>
+            </div>
+        </div>
+        <div class="realtime_content">
+            <div class="realtime_content_Rwrap">
+
+            </div>
+            <div class="realtime_content_left">
+
+            </div>
+            <div class="realtime_content_right rightIcon">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

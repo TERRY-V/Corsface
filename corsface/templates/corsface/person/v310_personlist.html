@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>人物库管理</title>
+
+	<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css"/>
+	<link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+	<link rel="stylesheet" href="/static/Themes/Style/setting.css" type="text/css">
+	<link rel="stylesheet" href="/static/Themes/Style/depoly.css">
+	<link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+	<link rel="stylesheet" href="/static/Themes/Style/ztree.css" type="text/css">
+	
+	<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+	<script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+	<script src="/static/JS/person/v310_personlist.js"></script>
+	<script src="/static/JS/person/tree.js"></script>
+	<script src="/static/Include/jquery/jquery.cookie.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+	 <!--<script src="/static/Include/uploadjs/jquery.form.js"></script> -->
+	<style>
+		td{
+			height: 87px;
+		}
+		.layui-layer-title{
+			height: 40px;
+			line-height: 40px;
+		}
+		.table_wrap {
+		    width: 80%;
+		    float: left;
+		}
+		
+	</style>
+</head>
+<body onload="Init_Person_List()" style="min-width: 1200px">
+		<div class="group_select" style="width: 17%;float: left;margin-left: 25px;">
+			<div class="main_alarm">
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">人物分组</div>
+						<!-- <a class="btn-social-icon btn btn-del editPersonGroup" id="edit_person_btn"></a>
+						<a class="btn-social-icon btn btn-del deletePersonGroup" id="delete_person_btn"></a>
+						<a class="btn btn-social-icon btn-add addPersonGroup" id="add_person_btn"></a> -->
+					</div>
+				</div>
+				<div class="group_content">
+					<ul id="treeDemo" class="ztree" style="overflow-x:hidden"></ul>
+				</div>
+			</div>
+		</div>
+		<div id="delete_person_list">
+			<ul>
+			</ul>
+			<div style="text-align: right"><input type="button" id="delete_btn" style="width: 60px" value="删除"></div>
+		</div>
+		<div id="edit_person_list">
+			<ul>
+			</ul>
+			<div style="text-align: right"><input type="button" id="edit_btn" style="width: 60px" value="保存更改"></div>
+		</div>
+		<div class="table_wrap">
+			<div class="main_alarm">
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3" id="group_name">
+							<!-- <span style="color:white;float:none;">分组:</span> -->
+							人物列表
+						</div>
+					</div>
+				</div>
+				<div class="group_content">
+					<!-- <div class="person_msg clearfix">
+						<div class="line_text">搜索</div>
+						<div class="filtrate_content">
+							<div class="filtrate_input">
+								<div>
+									<input id="txtPersonInfo" type="text" placeholder="输入人员名称">
+									<input type="button" onclick="Sort_Search()" value="搜索" />
+								</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- <div class=" clearfix"> -->
+							<div class="filtrate_content" style="padding:20px 10px 20px 10px;overflow: hidden">
+								<div class="filtrate_input filtrate_input_inline" style="font-weight:100;margin-left:10px" >
+									<!-- 基本信息： -->
+									<input id="name" type="text"  placeholder="姓名" onkeydown="Sort_Search()" style="width:180px;background-color: transparent;background-image:url(/static/Themes/Images/ICON/search.png);background-repeat:no-repeat;background-position:right;padding-right:20px">
+								</div>
+								
+								<div class="filtrate_input filtrate_input_inline">
+									性别：
+									<div class="sel_wrap" style="width:180px">
+										<label>全部</label>
+										<select class="select" name="gender">
+											<option id="sexAll" value="" checked="checked">全部</option>
+											<option value="2">男</option>
+											<option value="1">女</option>
+											<option value="-1">未知</option>
+										</select>
+									</div>
+								</div>
+								<div class="filtrate_input filtrate_input_inline">
+									证件号码：
+									<input id="id_card" style="width:180px">
+								</div>
+								<!-- <div class="filtrate_input filtrate_input_inline">
+									报警等级：
+									<select>
+										<option value="0">全部报警</option>
+										<option value="1">一级报警</option>
+										<option value="2">二级报警</option>
+										<option value="3">三级报警</option>
+										<option value="4">四级报警</option>
+									</select>
+								</div> -->
+								<div class="filtrate_input filtrate_input_inline" style="margin-left:20px">
+									<input type="button" class="go_search" value="查询">
+									<input type="button" id="remove" style="margin-right:15px" value="重置" />
+								</div>
+								<div class="filtrate_input filtrate_input_inline">
+
+
+								</div>
+
+							</div>
+							<!-- <div  style="height:1px;background-color:#87949a;display:block; margin:50px 0px 10px 0px"></div> -->
+							
+
+					<!-- </div> -->
+					<div class="operation_wrap">
+						<div class="line_text">列表</div>
+						<div  style="padding:20px 10px 10px;text-align:right">
+							<input type="button" onclick="PersonEdit()" class="place_right" style="margin-right:15px" value="新建人物" />
+							
+							<!-- <input type="button" value="导入人物" class="place_right" id="personImport" style="margin-right:15px; display:inline-block" > -->
+							<input type="button" onclick="delete_persons()" class="place_right" style="margin-right:15px" value="删除人物" />
+						</div>
+					</div>
+					<div class="">
+						
+						<!--<div class="show_filtrate">-->
+							<!--<span id="total_count" class="total_count left"></span>-->
+							<!--<span id="table_refresh"></span>-->
+							<!--<span id="table_filtrate"></span>-->
+							<!--<ul id="table_filtrate_li" class="hide"></ul>-->
+						<!--</div>-->
+						<div id="divListTable" class="comclass1" style="margin:0px 20px">
+							<table class="dataTable">
+		                        <thead style="border-bottom: 2px solid white">
+		                        <th>
+		                            <input type="checkbox" onclick="CheckAll(this)">
+		                        </th>
+		                        <th>人物照片</th>
+		                        <th>姓名</th>
+		                        <th>性别</th>
+		                        <th>年龄</th>
+		                        <th>证件号码</th>
+		                        <th>家庭住址</th>
+		                        <th>分组</th>
+		                        <!-- <th>创建时间</th> -->
+		                        <th>操作</th>
+		                        </thead>
+		                        <tbody class="tbody">
+							
+		                        </tbody>
+		                    </table>
+		                    <div>
+		                        <div align="right" style="margin:20px 50px" class="page">
+		                            <input id="page" type="button" name="start" value="首页" onclick="initPageButton('start')"/>
+		                            <input id="page1" type="button" name="last" value="上一页" onclick="initPageButton('last')"/>
+		                            <input type="text" vale=1 id="nowpage" style="width: 30px;height: 25px;">&nbsp<span class="span_white">/</span>&nbsp<span id="totalPage" class="span_white"></span>
+		                            <input id="page2" type="button" name="next" value="下一页" onclick="initPageButton('next')"/>
+		                            <input id="page3" type="button" name="end" value="尾页" onclick="initPageButton('end')"/>
+		                            &nbsp<span class="span_white" id="numTotal"></span>
+		                        </div>
+		                    </div>
+						</div>
+					</div>
+					
+					<div id="formm"></div>
+				</div>
+			</div>
+		</div>
+		<div class="iForm">
+			<div class="recognise_table">
+				<div class="table_title"> <p>单人布控</p>
+					<span class="layui-layer-setwin">
+						<a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;" style="border:0px"></a>
+					</span>
+				</div>
+				<div style="text-align:center; display:block;height:40px; width:100%; margin-bottom:10px">
+					<div class="filtrate_input" style="margin-top:10px 0px" >
+						识别端：
+						<div class="sel_wrap" style="width:180px; margin-top:10px">
+							<label>识别端选择</label>
+							<select class="select" name="recognise">
+								<option value="2">172识别端</option>
+								<!-- <option value="1">女</option> -->
+								<!-- <option value="-1">未知</option> -->
+							</select>
+						</div>
+						<input type="button" onclick="add_deploy_person()" value="添加布控"/>
+					</div>
+				</div>
+				<div class="table_content dataTable">
+					<table class="tb">
+						<thead>
+							<tr>
+								<th>人物图片</th>
+								<th>人物姓名</th>
+								<th>识别端</th>
+								<th>同步状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody class="deploy_body">
+							<tr>
+								<td>北京办公室
+								</td>
+								<td>欧阳子陵</td>
+								<td>未布控</td>
+								<td>布控/取消布控/重新布控</td>
+							</tr>
+							<tr>
+								<td>
+									北京办公室
+								</td>
+								<td>欧阳子陵</td>
+								<td>未布控</td>
+								<td>布控/取消布控/重新布控</td>
+							</tr>
+							<tr>
+								<td>
+									北京办公室
+								</td>
+								<td>欧阳子陵</td>
+								<td>未布控</td>
+								<td>布控/取消布控/重新布控</td>
+							</tr>
+							<tr>
+								<td>
+									北京办公室
+								</td>
+								<td>欧阳子陵</td>
+								<td>未布控</td>
+								<td>布控/取消布控/重新布控</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="table_foot">
+					<input type="button" class="cancle" value="关闭">
+				</div>
+			</div>
+		</div>
+</body>
+</html>

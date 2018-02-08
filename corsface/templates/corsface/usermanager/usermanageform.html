@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/userManage.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/bootstrap-select.css"/>
+
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery/jquery.cookie.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/FormEngine.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/bootstrap-select.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+    <script src="/static/JS/usermanagerjs/usermanage.js"></script>
+    <style type="text/css">
+        input{
+            padding-left: 10px;
+        }
+        select{
+            padding-left:5px;
+            color: #83CCE4;
+            width: 100%;
+        }
+        body{
+            width: 96%;
+            margin:auto;
+        }
+    </style>
+</head>
+<body onload="Init_User_Edit()">
+    <!--导航-->
+    <div class="FormTitleMid">
+        <div class="FormTitleRight">
+            <div class="FormTitle">新增用户</div>
+        </div>
+    </div>
+    <!--表单-->
+    <div class="FormContent comclass">
+        <div id="divForm">
+            <table style="width: 500px;height: 500px;">
+
+
+                <tbody id="tbody">
+                    <tr >
+			
+                        <td style="width: 150px;">用户名：</td>
+                        <td style="text-align: left;width: 300px;height: 40px;">
+                        <input type="text" id="user_username" placeholder="请输入真实姓名(必填)" maxlength="15" autocomplete="off"></td>
+                    </tr>
+                    <tr id="pwd">
+                        <td style="width: 150px;">密码：</td>
+                        <td style="text-align: left;width: 300px;height: 40px;">
+                        <input style="width:100%;" type="text" id="user_password" placeholder="请输入密码(必填)" maxlength="12" autocomplete="off" onfocus="this.type='password'"></td>
+                    </tr>
+                    <tr id="pwd_befor">
+                        <td style="width: 150px;">昵称：</td>
+                        <td style="text-align: left;width: 300px;height: 40px;">
+                        <input type="text" id="uname" placeholder="请输入用户名(必填)" maxlength="15"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">性别：</td>
+                        <td style="text-align: left;width: 150px;height: 40px;">
+                            <input id="sex_man" type="radio" name="sex" value="1" checked>男
+
+                            <input id="sex_woman" style="margin-left: 60px;" type="radio" name="sex" value="0">女
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">角色分组：</td>
+                        <td style="text-align: left;width: 150px;height: 40px;">
+                            <select id="roleid">
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">联系方式：</td>
+                        <td style="text-align: left;width: 300px;height: 40px;">
+                        <input type="text" id="phone" placeholder="请输入手机号码(选填)" maxlength="11"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">邮箱地址：</td>
+                        <td style="text-align: left;width: 300px;height: 40px;">
+                        <input type="text" id="email" placeholder="请输入邮箱地址(选填)" maxlength="30"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">备注信息：</td>
+                        <td style="text-align: left;width: 300px;height: 60px;">
+                        <textarea id="intro" style="width: 100%;height: 60px;resize: none;"  maxlength="50"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btnWrap">
+            <div id="divCancelButton" class="user_btn cancel"><input type="button" value="返回" onclick="Form_Cancel()" /></div>
+            <div id="divSaveButton" class="user_btn submit"><input type="button" value="保存" onclick="Form_Save()" /></div>
+        </div>
+    </div>
+</body>
+</html>

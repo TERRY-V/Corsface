@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>报警记录</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_alarmRecord.css" />
+
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/ajax-pushlet-client.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            font: 14px "微软雅黑", "Arial Narrow", HELVETICA;
+            scrollbar-face-color: #006a98;
+            scrollbar-base-color: #003f5a;
+            scrollbar-arrow-color: #006a98;
+        }
+        .main{
+            height: 99%;
+        }
+        .main_alarm{
+            height: 100%;
+        }
+        .alarm_content_wrap{
+            height: calc(100% - 40px);
+        }
+        .alarm_msg_right{
+            top: 35px;
+            left: 350px;
+        }
+        .alarm_msg_constent{
+            margin-left: 15px;
+        }
+        .Pmatches{
+            top: 50px;
+            left: -26px;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            line-height: 32px;
+            color: whitesmoke;
+            border: 1px solid #83CCE4;
+            background-color: #105a81;
+        }
+        .arid_num{
+            top: auto;
+            right: 0;
+            bottom: -33px;
+        }
+        .Ptime{
+            top: -25px;
+            left: -120px;
+        }
+        .alarm_camera_time{
+            bottom: -25px;
+        }
+        .alarm_camera_time p{
+            line-height: 20px;
+        }
+        .alarm_camera_time p>span{
+            margin-right: 5px;
+        }
+        p{
+            text-shadow: -1px 1px 0px #171717;
+        }
+
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/CorsFace/System/Frame/JS/respond.js"></script>
+    <![endif]-->
+    <script src="/CorsFace/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/CorsFace/Include/layer/layer.js"></script>
+    <script src="/CorsFace/Business/Alarm/JS/V32_Alarm.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body onload="">
+<div class="main">
+    <div id="SurImg" class="hide"><img src="" alt=""></div>
+    <div class="main_alarm">
+        <div class="main_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">报警记录</div>
+            </div>
+        </div>
+        <div class="alarm_content_wrap">
+            <div id="AlarmRecord" class="alarm_card_wrapper clearfix">
+                <!--<div class="alarm_card" onclick="personDetails('3de93813-8102-47d2-ab80-5d3416cfb0d3', 'BM201711290035')">-->
+                <!--<div class="detail_state">-->
+                <!--<img class="state_img" src="/CorsFace/Themes/Images/Other/noDetail.png" alt="">-->
+                <!--</div>-->
+                <!--<div class="alarm_msg clearfix">-->
+                <!--<p class="arid_num">BM201711290035</p>-->
+                <!--<div class="alarm_face_img left">-->
+                <!--<img style="width: 100%" src="/CorsFace/Attach/Upload/Alerm/201711/img_e3c4220c-1210-4dc1-a904-238c5e60e0e8.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="alarm_msg_constent left">-->
+                <!--<p class="PName" style="font-size: 18px">李卫华</p><br>-->
+                <!--<p>公司内部人员</p> <br><p>云识图</p> <br><p>北京海淀</p>-->
+                <!--</div>-->
+                <!--<div class="alarm_msg_right right">-->
+                <!--<img style=" width: 25px; margin-left: 16px;" src="/CorsFace/Themes/Images/ICON/alarm1.png" alt=""><br>-->
+                <!--</div>-->
+                <!--<div class="alarm_camera_time">-->
+                <!--<p><span class="alarm_snapImg_btn" onclick="snapClick(event, this)"></span>办公区球型机</p>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="alarm_camera_pImg">-->
+                <!--<img src="" alt=""> <p>2017-11-29 11:54:47</p>-->
+                <!--</div>-->
+                <!--<div class="snapImg" onclick="snapImgClick(event)">-->
+                <!--<img style="width: 100%; height: 100%" src="/CorsFace/Attach/Upload/Alerm/201711/3de93813-8102-47d2-ab80-5d3416cfb0d3.jpg" alt="">-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

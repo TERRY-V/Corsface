@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>设备状态</title>
+     <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css"href="/static/Themes/Style/style.css"/>
+
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            scrollbar-face-color: #006a98;
+            scrollbar-base-color: #003f5a;
+            scrollbar-arrow-color: #006a98;
+            color: #83CCE4;
+        }
+
+        .camera > div, .identifys > div, .acquisitions > div {
+            float: left;
+            margin: 10px;
+            text-align: center;
+            color: whitesmoke;
+        }
+
+        .group_content {
+            margin-left: 20px;
+            width: 96%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .CameraSet_content {
+            overflow: hidden;
+        }
+
+        .deviceText {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            margin-right: -1px;
+            background: #5ca0b8;
+            padding: 0 5px;
+            letter-spacing: 8px;
+            color: whitesmoke;
+            height: 29px;
+            line-height: 29px;
+            vertical-align: bottom;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .deviceTextAfter {
+            content: '';
+            width: 63px;
+            height: 29px;
+            display: inline-block;
+            vertical-align: bottom;
+            background: url("/static/Themes/Images/Other/title_bg.png") no-repeat center;
+        }
+
+        #showID1 {
+            border-top: 2px solid #7eccef;
+            margin-top: 3px;
+            font-size: 12px;
+            padding: 20px 0;
+        }
+
+        #showID2 {
+            border-top: 2px solid #7eccef;
+            margin-top: 3px;
+            font-size: 12px;
+            padding: 20px 0;
+        }
+
+        #showID3 {
+            border-top: 2px solid #7eccef;
+            margin-top: 3px;
+            font-size: 12px;
+            padding: 20px 0;
+        }
+
+        input[type="radio"] {
+            cursor: auto;
+        }
+        .hang{
+            margin-top:20px;
+            width:100px;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body onload="Init_Device()">
+<div class="main">
+    <div class="group_content" id="group_content">
+        <div class="main_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">设备总览</div>
+            </div>
+        </div>
+        <div class="dgd" style="overflow:auto;border-left: 2px solid #00ace4;border-bottom: 2px solid #00ace4;border-right:2px solid #00ace4;">
+            <div class="CameraSet_content content"
+                 style="border-bottom: 0px; border:none;">
+                <span class="deviceText">识别端</span><span class="deviceTextAfter"></span>
+                <div id="showID2" class="identifys clearfix"></div>
+            </div>
+            <div class="CameraSet_content content" style="border:none;">
+                <div class="deviceText">采集端</div>
+                <span class="deviceTextAfter"></span>
+                <div id="showID3" class="acquisitions clearfix"></div>
+            </div>
+            <div class="CameraSet_content content" style="border:none ;">
+                <span class="deviceText">摄像头</span><span class="deviceTextAfter"></span>
+                <div id="showID1" class="camera clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="/static/JS/system/DeviceState.js"></script>
+
+</html>

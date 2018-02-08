@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+	<link rel="stylesheet" type="text/css" href="/static/Themes/Style/setting.css" />
+	<link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+
+	
+
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="/static/Include/jquery/jquery.cookie.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    
+	<script src="/static/Include/FormEngine.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/Include/ListTable.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+	<script src="/static/JS/usermanagerjs/usermanage.js"></script>
+	<style type="text/css">
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			scrollbar-face-color: #006a98;
+			scrollbar-base-color: #003f5a;
+			scrollbar-arrow-color: #006a98;
+		}
+		.main_content{
+			position: relative;
+			border: 2px solid #00A0E9;
+			border-top: none;
+			padding: 10px;
+		}
+		.btnBar{
+			margin-bottom:0;
+			padding-top: 0;
+		}
+		.person_msg{
+			padding-top: 0;
+		}
+		.tbody{
+				border-bottom:1px solid #1a455c;
+			}
+		#page{
+				width: 50px;
+				height: 25px;
+				border: 0px;
+				border-radius:2px;
+			}
+		tr{
+			border-bottom:1px solid #1a455c;
+		}
+		th{
+			background-color: #09354c;
+			border-top: 2px solid #476a7d;
+			border-bottom: 2px solid #07283a;
+		}
+		.layui-layer-close1{
+				border:0px;
+		}
+		.layui-layer-content{
+			color: white;
+		}
+	</style>
+</head>
+<body onload="Init_User()">
+
+		<div class="main">
+			<div class="main_addRule">
+				<div class="main_header bg_header_1">
+					<div class=" bg_header_2">
+						<div class=" bg_header_3">用户管理</div>
+					</div>
+				</div>
+
+				<div class="CameraSet_content content">
+					<div class="person_msg" style="border-top: none;">
+						<div class="btnBar">
+							<div class="search_wrap">
+								<input type="button" value="新建" onclick="AddUser()"/>
+								<input type="button" value="删除" id="listDelete" onclick="delUser()"/>
+							</div>
+						</div>
+						<div>
+							<table>
+								<thead>
+									<th>
+										<input type="checkbox" onclick="CheckAll(this)" >
+									</th>
+									<th>用户名</th>
+									<th>昵称</th>
+									<th>邮箱</th>
+									<th>角色</th>
+									<th>操作</th>
+								</thead>
+								<tbody id="tbody"></tbody>
+							</table>
+							<div>
+							<div align="right" style="margin-right: 50px;" class="page">
+								
+								<input id="page" type="button" name="start" value="首页" onclick="initPageButton('start')" />
+								<input id="page" type="button" name="last" value="上一页" onclick="initPageButton('last')" />
+								<input type="text" vale=1 id="nowpage" onkeyup="value=value.replace(/[^\d]/g,'')" style="width: 25px;height: 25px;padding-left: 0px;text-align: center;">
+								/<span id="pagenumber"></span>
+								<input id="page" type="button" name="next" value="下一页" onclick="initPageButton('next')" />
+								<input id="page" type="button" name="end" value="尾页" onclick="initPageButton('end')" />
+								(共<span id="number"></span>条数据)
+							</div>
+						</div>
+						</div>
+						<!--<div class="show_filtrate">-->
+							<!--<span id="total_count" class="total_count left"></span>-->
+							<!--<span id="table_refresh"></span>-->
+							<!--<span id="table_filtrate"></span>-->
+							<!--<ul id="table_filtrate_li" class="hide"></ul>-->
+						<!--</div>-->
+
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+</body>
+</html>

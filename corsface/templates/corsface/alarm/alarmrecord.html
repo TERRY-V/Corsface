@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>报警记录</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_alarmRecord.css" />
+    <link rel="stylesheet" href="/static/Include/zTree/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="/static/Include/zTree/demo.css" type="text/css">
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <style type="text/css">
+        html,
+        body {
+            height: auto;
+            font: 14px "微软雅黑", "Arial Narrow", HELVETICA;
+            scrollbar-face-color: #006a98;
+            scrollbar-base-color: #003f5a;
+            scrollbar-arrow-color: #006a98;
+        }
+        .layui-layer-ico{
+            border: 0px;
+        }
+        .alarm_msg_right{
+            top: 35px;
+            left: 350px;
+        }
+        .alarm_msg_constent{
+            margin-left: 15px;
+        }
+        .Pmatches{
+            top: 50px;
+            left: -26px;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            line-height: 32px;
+            color: whitesmoke;
+            font-weight: bold;
+            border: 1px solid white;
+            text-align: center;
+            font-size: 16px;
+
+            background-color: #f48008;
+        }
+        .arid_num{
+            top: auto;
+            right: 0;
+            bottom: -33px;
+        }
+        .Ptime{
+            top: -25px;
+            left: -120px;
+        }
+        .alarm_camera_time{
+            bottom: -25px;
+        }
+        .alarm_camera_time p{
+            line-height: 20px;
+        }
+        .alarm_camera_time p>span{
+            margin-right: 5px;
+        }
+        p{
+            text-shadow: -1px 1px 0px #171717;
+        }
+        .filtrate_input{
+            float: left;
+            margin-top: 7px;
+        }
+        .Pmatches{
+            background-color: rgba(255,0,0,0.6);
+            top:36px;
+        }
+        .main_statistic {
+			margin-left: calc(59% + 50px);
+			margin-right: 20px;
+			margin-bottom: 10px;
+			float:none;
+		}
+		.main_filtrate {
+		    width: 60%;
+		    margin: 0 20px 20px 0;
+		    font-size: 14px;
+		    font-family: '微软雅黑', "Arial Narrow", HELVETICA;
+		    float: left;
+		    min-width: 777px;
+		}
+		.main-wrapper{
+			margin-bottom: 0px;
+		}
+		.filtrate_submit{
+			height: 25px;
+			line-height: 25px;
+			bottom: 10px;
+		}
+		.filtrate_clear {
+			right:120px;
+		}
+
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/CorsFace/System/Frame/JS/respond.js"></script>
+    <![endif]-->
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/echarts.simple.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/laydate/formateDate.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="/static/Include/zTree/jquery.ztree.excheck.min.js"></script>
+
+    <script src="/static/Include/jquery/jquery.cookie.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="/static/JS/alarmjs/alarmCameraTree.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/alarmjs/alarmRecord.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+    <script src="/static/Include/Pagnation.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body onload="Init_Alarm_Record({number: 12,page: 1})">
+<div class="main">
+    <div id="SurImg" class="hide"><img src="" alt=""></div>
+    <div class="main-wrapper">
+        <div class="main_filtrate">
+            <div class="main_header bg_header_1">
+                <div class=" bg_header_2">
+                    <div class=" bg_header_3">筛选项</div>
+                </div>
+            </div>
+            <div class="filtrate_content" style="height: 180px;padding-top: 7px;padding-left: 10px;">
+                 <div class="clearfix">
+                     <div class="filtrate_input" >
+                         <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</span>
+                         <input id="name" placeholder="请填写姓名" type="text" value=""/>
+                     </div>
+                     <div class="filtrate_input" >
+                         <span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+                         <select id="gender" style="background-color: #0a364d;width: 135px;height:26px;padding-left:10px;">
+                            <option value="" selected>全部</option>
+                            <option value="1">女</option>
+                            <option value="2">男</option>
+                         </select>
+                     </div>
+                      <div class="filtrate_input">
+                         <span>证件号码：</span>
+                         <input id="id_card" placeholder="请填写证件号码" type="text" value=""/>
+                     </div>
+                 </div>
+                <div class="clearfix">
+                    <div class="filtrate_input">
+                         <span>人物分组:</span>
+                         <select id="person_sort" style="background-color: #0a364d;width: 135px;height:26px;padding-left:10px;">
+                            <option value="" selected>全部</option>
+                         </select>
+                    </div>
+                    <div class="filtrate_input" style="text-align: left;padding-left: 18px;">
+                        <span >摄&nbsp;&nbsp;像&nbsp;&nbsp;头：</span>
+                        <div class="sel_wrap" >
+                            <label id="citySelName" style="float: left;padding-left: 17px;font-weight: 500">全部</label>
+                            <input id="citySel" class="select"  value="全部" onclick="showMenu(); return false;"/>
+                        </div>
+                        <div id="menuContent" class="menuContent" style="z-index: 10000;display:none; position: fixed;">
+                            <ul id="treeDemo" class="ztree" style="margin-top:0; width:122px; height: 200px;"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                <div class="filtrate_input">
+                         <span>报警等级：</span>
+                         <select id="alarm_level" style="background-color: #0a364d;width: 135px;height:26px;padding-left:10px;">
+                            <option value="" selected>全部</option>
+                            <option value="1">一级报警</option>
+                            <option value="2">二级报警</option>
+                            <option value="3">三级报警</option>
+                            <option value="4">四级报警</option>
+                         </select>
+                    </div>
+                    <div class="filtrate_input filtrate_time">
+                    报警时间：
+                    <input type="text" name="startTime" id="startTime" value="" />到<input type="text" name="endTime" id="endTime" value="" />
+                    <div class="filtrate_input">
+                    
+                </div>
+                </div>
+
+                </div>
+                
+                <!-- <div class="filtrate_input">
+                    <span>报警等级：</span>
+                    <div class="sel_wrap">
+                        <label>全部</label>
+                        <select class="select" name="alarm_level" id="alarm_level">
+                        </select>
+                    </div>
+                </div>
+                <div class="filtrate_input">
+                    <span>报警规则：</span>
+                    <div class="sel_wrap">
+                        <label>全部</label>
+                        <select class="select" name="alarm_rules" id="alarm_rules">
+                
+                        </select>
+                    </div>
+                </div> -->
+                <!-- <div class="filtrate_input">
+                    <span>时间筛选：</span>
+                    <div class="sel_wrap">
+                        <label>默认</label>
+                        <select class="select" name="alarm_rules" id="timeSelect">
+                            <option value="0">当前时间</option>
+                            <option value="1">一小时内</option>
+                            <option value="2">两小时内</option>
+                            <option value="5">五小时内</option>
+                        </select>
+                    </div>
+                </div> -->
+                <!--<div class="filtrate_input">-->
+
+                <!--</div>-->
+                <!--<div class="filtrate_input">-->
+
+                <!--</div>-->
+
+                <div class="filtrate_state">
+                    <span>是否处理：</span>
+                    <form class="filtrate_input_radio" id="deal">
+                        <label><input type="radio" name="deal" value="0" checked="checked"><span>全部</span></label>
+                        <label><input type="radio" name="deal" value="2"><span>已处理</span></label>
+                        <!-- <label><input type="radio" name="deal" value="1"><span>误报</span></label> -->
+                        <label><input type="radio" name="deal" value="1"><span>待处理</span></label>
+                    </form>
+                </div>
+                <div class="filtrate_input">
+                    <div class="filtrate_submit filtrate_clear" id="clear_btn">
+                        重 置
+                    </div>
+                    <div class="filtrate_submit" id="submit_btn">
+                        查 询
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_statistic" style="width: 38%">
+            <div class="main_header bg_header_1">
+                <div class=" bg_header_2">
+                    <div class=" bg_header_3">今日报警</div>
+                </div>
+            </div>
+            <div class="statistic_content" style="height: 180px;">
+                <div id="statistic_charts" style="width: 80%;height:145px;"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="main_alarm">
+        <div class="main_header bg_header_1">
+            <div class=" bg_header_2">
+                <div class=" bg_header_3">报警记录</div>
+            </div>
+        </div>
+        <div class="alarm_content_wrap">
+            <div id="AlarmRecord" class="alarm_card_wrapper clearfix">
+
+            <!--<div class="alarm_card" id="51d21814-d6e8-4a9f-a239-97790513fb85" onclick="personDetails('51d21814-d6e8-4a9f-a239-97790513fb85', 'BM201712110006')">-->
+                <!--<div class="detail_state">-->
+                    <!--<img class="state_img" src="/CorsFace/Themes/Images/Other/noDetail.png" alt="">-->
+                <!--</div>-->
+                <!--<div class="alarm_msg clearfix">-->
+                    <!--<p class="arid_num">BM201712110006</p>-->
+                    <!--<div class="alarm_face_img left">-->
+                        <!--<img style="width: 100%" src="/CorsFace/Attach/Upload/Alerm/201712/img_33d662a0-6861-4fab-998f-56bf2f83a65a.jpg" alt="">-->
+                    <!--</div>-->
+                    <!--<div class="alarm_camera_pImg" data-id="139e0f4e-e7d1-43e2-844a-e7dd580cc80e">-->
+                        <!--<img src="/CorsFace/Attach/Upload/Person/201712/9b869d94-a75c-44d8-b405-577987a41436.jpg" alt=""> <p class="Ptime">2017-12-11 11:04:45</p>-->
+                        <!--<div class="Pmatches">70%</div>-->
+                    <!--</div>-->
+                    <!--<div class="alarm_msg_mid">-->
+                        <!--<div class="alarm_msg_constent left">-->
+                            <!--<p class="PName" style="font-size: 18px">wjw</p><br><p>ziling</p><br><p>未知</p><br><p>未知住址</p>-->
+                        <!--</div>-->
+                        <!--<div class="alarm_camera_time">-->
+                            <!--<p> <span class="alarm_snapImg_btn" onclick="snapClick(event, this)"></span>门口科达</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="alarm_msg_right">-->
+                    <!--<img style=" width: 25px; margin-left: 16px;" src="/CorsFace/Themes/Images/ICON/alarm1.png" alt="">-->
+                <!--</div>-->
+            <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

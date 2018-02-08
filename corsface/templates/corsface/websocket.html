@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>websocket测试</title>
+		<script src="/static/AdminLTE-2.4.2/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<div id="copyright">
+		<ul id="receiveMsg"></ul>
+	</div>
+		
+		<script type="application/javascript">
+			socket = new WebSocket("ws://" + window.location.host + "/facetrack/websocket");
+			socket.onmessage = function(e) {
+				console.log(e.data);
+				var ul = document.getElementById("receiveMsg");
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode(e.data));
+				ul.appendChild(li);
+			}
+			socket.onopen = function() {
+				socket.send("Hello world");
+	        }
+			if (socket.readyState == WebSocket.OPEN) {
+				socket.onopen();
+			}
+	    </script>
+
+	</body>
+
+    
+</html>

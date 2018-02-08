@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人物详情</title>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_faceInfo.css" />
+
+    <!--处理ie8兼容-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/Include/respond.js"></script>
+    <![endif]-->
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/facejs/v310_personDetail.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery/jquery.cookie.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        body {
+            background: #002c40;
+        }
+        #pm_ft_wrapper img{
+            width:144px;
+            height:144px;
+        }
+    </style>
+
+</head>
+<body onload="personDetails()">
+    <!-- 基本信息 -->
+    <div id="goBack" class="goBack">
+        <a class="btn-social-icon" href="javascript:goBack()" style="border:0px;background:#062b3c;"><img src="/static/Themes/Images/ICON/face_detail_return.png" style="width:30px;" /></a>
+    </div>
+    <div class="person_msg clearfix" id="base_msg">
+        <div class="line_text">人物基本信息</div>
+
+        <div class="pm_img left" id="pm_img">
+             <!-- JS灌入数据 -->
+        </div>
+        <div class="pm_msg left" id="pm_msg"><!-- JS灌入数据 --></div>
+    </div>
+
+    <!-- 附加信息 -->
+    <div class="person_msg clearfix">
+        <div class="line_text">附加信息</div>
+        <div class="add_msg left" id="add_msg"><!-- JS灌入数据 --></div>
+    </div>
+
+    <!-- 人脸序列 -->
+    <div class="person_msg">
+        <div class="line_text">人物图片</div>
+        <div class="pm_ft_wrapper" id="pm_ft_wrapper"><!-- JS灌入数据 --></div>
+    </div>
+
+</body>
+</html>

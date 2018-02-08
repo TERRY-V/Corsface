@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>人脸记录详情</title>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_faceInfo.css" />
+
+    <style type="text/css">
+        .HBBtn{margin-top : 160px !important;}
+        .content_main_imgs{width : calc(80% - 440px);}
+        .goback{position: absolute;right: 5px;top: 2px;}
+        .layui-layer{
+            margin: 0;
+            padding: 0;
+            background-color: rgba(0,0,0,0);
+            -webkit-background-clip: content;
+            box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+        }
+    </style>
+    <!--处理ie8兼容-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/CorsFace/Include/respond.js"></script>
+    <![endif]-->
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/jquery/jquery.cookie.js"></script>
+    <script src="/static/Include/media/csrf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/facejs/v310_faceInfo.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="/static/Include/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        html,body{
+            background-color: #003b55;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="main_faceINfo">
+        <div class="camera_msg" id="camera_msg">
+            <p><span id="face_camera">摄像头名称</span><span id="face_time"> </span><span id="face_similar" style="color: #fff"></span></p>
+        </div>
+        <div class="person_alarm">
+            <div class="alarm_info" id="alarm_info">
+                <div class="person_msgImg" id="person_img"></div>
+                <div class="person_i"></div>
+            </div>
+            <div class="alarm_massage" id="alarm_massage">
+                <p class="alarm_name" id="al_name"> </p>
+                <p id="al_tag"> </p>
+                <p id="al_group"> </p>
+                <p id="al_id"> </p>
+                <p id="al_address"></p>
+            </div>
+            <div class="detail_btn" id="detail_btn"></div>
+        </div>
+        <div class="alarm_media hide">
+            <div class="content_head">
+                抓取记录
+            </div>
+            <div id="media_BImg" class="media_BImg">
+                <img src="" alt=""><div>场景图片</div>
+            </div>
+            <div class="media_images_wrap">
+                <div id="media_images" class="media_images"></div>
+            </div>
+        </div>
+
+            <!--<div class="faceInfo_camera">-->
+                <!--摄像头：<span id="face_camera">门口摄像头001</span><span id="face_time">2017-04-30 12:13:22</span>-->
+            <!--</div>-->
+            <!--<div class="faceInfo_getcontent">-->
+                <!--<div class="content_head">-->
+                    <!--抓取记录-->
+                <!--</div>-->
+                <!--<div class="content_main">-->
+                    <!--<div class="content_main_bigImg">-->
+                        <!--<img src="" />-->
+                    <!--</div>-->
+                    <!--<div class="content_main_imgs" id="pcontent_main_imgs">-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                        <!--<img src="" />-->
+                    <!--</div>-->
+                    <!--<div class="content_main_btn">-->
+                        <!--<div id="tracePerson">-->
+                            <!--追踪人物-->
+                        <!--</div>-->
+                        <!--<div id="createPerson">-->
+                            <!--创建人物-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="faceInfo_result">
+                <div class="content_head">
+                    相似人物
+                </div>
+                <div class="result_content">
+
+                    <div class="result_info">
+                        <div class="result_info_wrap">
+                            <!--<div class="result_card">-->
+                                <!--<div class="result_confidence">50%可信度</div>-->
+                                <!--<div class="result_img">-->
+                                    <!--<img src="" alt="">-->
+                                <!--</div>-->
+                                <!--<div class="result_name">龙傲天</div>-->
+                                <!--<div class="result_id">61002835475269233</div>-->
+                                <!--<div class="result_btn">-->
+                                    <!--<div class="result_detail" data-id="">详情</div>-->
+                                    <!--<div class="result_add" data-id="">添加</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="result_card"></div>-->
+                            <!--<div class="result_card"></div>-->
+
+                        </div>
+                    </div>
+                    <div class="realtime_content_left"></div>
+                    <div class="realtime_content_right rightIcon"></div>
+                </div>
+
+            </div>
+    </div>
+</body>
+
+</html>

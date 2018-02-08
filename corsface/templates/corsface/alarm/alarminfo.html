@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>报警记录</title>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/Themes/Style/V31_alarmRecord.css" />
+    <style type="text/css">
+        html,
+        body {
+            height: auto;
+            scrollbar-face-color: #006a98;
+            scrollbar-base-color: #003f5a;
+            scrollbar-arrow-color: #006a98;
+            background: #003b55;
+        }
+        .content_head{
+            /*background: #003b55;*/
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/CorsFace/System/Frame/JS/respond.js"></script>
+    <![endif]-->
+    <script src="/static/Include/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/Util.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 弹出框 JS及样式 -->
+    <script type="text/javascript" src="/static/Include/layer/layer.js"></script>
+    <script src="/static/Include/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/Include/laydate/formateDate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/JS/alarmjs/alarmRecord.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body onload="Init_Alarm_Info()">
+<!--<div>-->
+<!--<div class="main_person">-->
+<!--<div class="main_header bg_header_1">-->
+<!--<div class=" bg_header_2">-->
+<!--<div class=" bg_header_3">报警记录</div>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--<div class="person_content">-->
+<div class="camera_msg" id="camera_msg">
+    <!--<p>摄像头名称<span>2017-10-25 09:30:20</span><span style="color: #fff">80%可信</span></p>-->
+</div>
+<div class="person_alarm">
+
+    <div class="alarm_info" id="alarm_info">
+        <div class="person_msgImg" id="person_img"></div>
+    </div>
+    <div class="alarm_massage" id="alarm_massage"></div>
+    <div class="detail_icon" id="detail_icon"></div>
+    <div class="detail_btn" id="detail_btn"></div>
+</div>
+<div class="alarm_media">
+    <div class="content_head">
+        抓取记录
+    </div>
+    <div class="media_video" style="display: none">
+
+    </div>
+    <div id="media_BImg" class="media_BImg">
+
+    </div>
+    <div class="media_images_wrap">
+        <div id="media_images" class="media_images">
+
+        </div>
+    </div>
+
+</div>
+
+<div class="PersonImgWrap">
+    <div class="content_head">
+        人物图片
+    </div>
+    <div class="PersonImgW">
+        <div class="PersonImg">
+            <img src="../../../Themes/Images/ICON/Pdelete.png" alt="">
+            <img src="../../../Themes/Images/ICON/Pdelete.png" alt="">
+            <img src="../../../Themes/Images/ICON/Pdelete.png" alt="">
+            <img src="../../../Themes/Images/ICON/Pdelete.png" alt="">
+            <img src="../../../Themes/Images/ICON/Pdelete.png" alt="">
+            <img src="../../../Themes/Images/ICON/Pdelete.png" alt="">
+            <img src="../../../Themes/Images/ICON/Pdelete.png" alt="">
+            <img src="../../../Themes/Images/ICON/Pdelete.png" alt="">
+
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
