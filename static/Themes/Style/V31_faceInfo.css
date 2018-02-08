@@ -1,0 +1,768 @@
+.main{
+    position: relative;
+}
+body{
+    background: #005982;
+}
+.main_faceINfo {
+    color: #009fd4;
+    background-color: #003b55;
+}
+.hide{
+    display: none;
+}
+.faceINfo_content {
+    border: 1px solid #00ACE4;
+    border-top: none;
+    border-radius: 2px;
+    padding-top: 1px;
+}
+.loading{
+    width:30px;
+    height: 30px;
+    background: url(../Images/ICON/ping/loading.gif) no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.faceInfo_camera {
+    height: 70px;
+    font-size: 16px;
+    line-height: 60px;
+    padding-left: 20px;
+}
+
+.faceInfo_camera span {
+    margin: 0 10px;
+}
+
+.faceInfo_getcontent {
+    border-top: 2px solid #5caac7;
+    position: relative;
+}
+
+.content_head {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 18px;
+    background: #003b55;
+    color: #fff;
+    font-weight: 600;
+}
+
+.content_main {
+    height: 210px;
+    border: 1px solid #0a6f9e;
+    margin: 20px 0;
+    border-left-width: 20px;
+    border-right-width: 20px;
+}
+
+.content_main_bigImg {
+    width: 340px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    float: left;
+}
+
+.content_main_bigImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.content_main_btn {
+    width: 20%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 75px 20px 0;
+    float: right;
+}
+
+.content_main_btn>div {
+    max-width: 150px;
+    width: 70%;
+    margin: 20px 0 0 30%;
+}
+
+.content_main_imgs {
+    float: left;
+    height: 180px;
+    width: calc(80% - 380px);
+    margin: 10px 0 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.content_main_imgs img {
+    width: 80px;
+    height: 80px;
+    margin: 10px 5px 0;
+}
+
+.faceInfo_result {
+    border-top: 2px solid #5ca1ba;
+    position: relative;
+    /*margin-top: 30px;*/
+}
+
+.result_facetrack {
+    height: 210px;
+    padding: 0;
+    box-sizing: border-box;
+}
+.result_info_wrap{
+    height:100%;
+    box-sizing: border-box;
+    padding-top: 20px;
+    width: 1224px;
+    overflow: hidden;
+    position: absolute;
+}
+.result_content {
+    overflow: hidden;
+    height: 290px;
+    box-sizing: border-box;
+    padding: 10px 30px;
+    position: relative;
+}
+.realtime_content_right {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    height: 260px;
+    width: 30px;
+    z-index: 4;
+    background-color: #003b55;
+}
+.result_info{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.realtime_content_left {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    height: 270px;
+    width: 30px;
+    z-index: 4;
+    background-color: #003b55;
+}
+
+.leftIcon {
+    background-image: url(../Images/ICON/goleft.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.rightIcon {
+    background-image: url(../Images/ICON/goright.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.result_card{
+    background: url("../Images/Other/face_card.png") no-repeat;
+    background-size: 100% 100%;
+    width: 184px;
+    height: 253px;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    float: left;
+    margin-right: 20px;
+    text-shadow: -1px 1px 1px #171717;
+
+}
+.result_confidence{
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+.result_card:first-child .result_confidence{
+    color: whitesmoke;
+}
+.result_img{
+    height: 130px;
+    margin-bottom: 12px;
+}
+.result_img img{
+    width: 126px;
+    height: 126px;
+    display: block;
+    margin: auto;
+}
+.result_name{
+    font-size: 15px;
+    color: #72b7d0;
+    text-align:center;
+}
+.result_id{
+    font-size: 10px;
+    text-align:center;
+}
+.result_btn{
+    height: 30px;
+    line-height: 30px;
+}
+
+.result_facetrack .btn {
+    margin-top: 80px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.person_info {
+    height: 200px;
+    margin: 10px;
+    float: left;
+    width: 360px;
+    box-sizing: border-box;
+    border: 2px solid #0A6F9E;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #eef1f2;
+    position: relative;
+    padding: 5px 0 0 10px;
+}
+
+.person_img {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 90px;
+    height: 90px;
+    box-sizing: border-box;
+    border: 2px solid #0A6F9E;
+    border-radius: 4px;
+}
+
+.person_img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+}
+.result_btn div{
+    float: left;
+    color: white;
+    margin: 5px 10px;
+    height: 20px;
+    width: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    border: 2px solid #3a8fbb;
+    line-height: 16px;
+    border-radius: 2px;
+    font-size: 12px;
+    background-color: #003b55;
+}
+.content_main_similar {
+    width: 10%;
+    float: left;
+    text-align: center;
+    line-height: 200px;
+    font-size: 20px;
+}
+
+
+/*人物追踪页面*/
+
+.face_media {
+    position: relative;
+    height: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #0a6f9e;
+    margin: 20px 0;
+    border-left-width: 20px;
+    border-right-width: 20px;
+}
+
+.media_BImg{
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    border: 1px solid #00ace4;
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 20px;
+}
+.media_BImg img{
+    max-width: 100%;
+}
+.media_BImg>div{
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    background: #003b55;
+    color: #83CCE4;
+    text-align: center;
+    line-height: 20px;
+    top: -10px;
+    left: 124px;
+}
+
+.media_images_wrap{
+    width: 50%;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.media_images{
+    position: absolute;
+}
+.media_images img{
+    width: 96px;
+    height: 96px;
+    margin-bottom: 10px;
+    margin-left: 16px;
+    border: 1px solid #00ace4;
+    box-sizing: border-box;
+}
+
+.person_images {
+    position: relative;
+    border-top: 1px solid #5ca1ba;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.person_images img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.faceTrace_result {
+    height: 620px;
+    box-sizing: border-box;
+    padding: 0 20px 20px;
+}
+
+.faceTrace_tree {
+    height: 600px;
+    box-sizing: border-box;
+    width: 50%;
+    border: 1px solid #0a6f9e;
+    float: left;
+}
+
+.faceTrace_map {
+    height: 600px;
+    box-sizing: border-box;
+    width: 49%;
+    margin-left: 1%;
+    float: left;
+}
+
+.faceTrace_tree_wrap {
+    min-height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.spnCon {
+    display: block;
+    height: 115px;
+    padding: 15px 5px 15px 5px;
+    vertical-align: middle;
+}
+
+.spnTxt {
+    display: inline-block;
+    height: 115px;
+    color: whitesmoke;
+    font-size: 14px;
+    line-height: 115px;
+    vertical-align: middle;
+
+}
+#rightTraceTree{
+    padding-top:70px;
+}
+#rightTraceTree .spnCon{
+    background: url(/CorsFace/Themes/Images/Other/tree_right.png) no-repeat left bottom;
+    padding-left: 80px;
+}
+#leftTraceTree .spnCon{
+    background: url(/CorsFace/Themes/Images/Other/tree_left.png) no-repeat right bottom;
+    padding-right: 80px;
+}
+
+.spnFace {
+    display: inline-block;
+    width: 100px;
+    height: 115px;
+    vertical-align: middle;
+
+}
+
+.spnSingTxt {
+    display: block;
+    height: 35px;
+    line-height: 35px;
+}
+
+.treeMain {
+    background: url(/CorsFace/Themes/Images/Other/tree_main.png) repeat-y;
+    width: 10px
+}
+
+.treeBottom {
+    /*background: url(/CorsFace/Themes/Images/Other/tree_root.png) no-repeat center;*/
+    width: 24px;
+    height: 25px
+}
+input[type="button"] {
+    margin: 2px 5px;
+    border: 2px solid #00ace4;
+    border-radius: 5px;
+    color: white;
+    background: #005982;
+    width: 100px;
+    cursor: pointer;
+}
+/*取消百度logo*/
+
+.anchorBL {
+    display: none;
+}
+
+/*人脸详情部分，取自报警详情*/
+.snapImg{
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 10px;
+    left: 0;
+    bottom: -174px;
+    width: 100%;
+    height: 186px;
+    background-image: url(../Images/Default/alarm_card_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 20;
+    opacity: .8;
+    border: 1px solid #2cfcfc;
+}
+.snapImg:before{
+    display: inline-block;
+    content: '';
+    border: 10px solid rgba(0,0,0,0);
+    border-bottom: 10px solid #2cfcfc;
+    position: absolute;
+    right: 17px;
+    top: -20px;
+}
+.snapImg:after{
+    display: inline-block;
+    content: '';
+    border: 9px solid rgba(0,0,0,0);
+    border-bottom: 9px solid #096b9a;
+    position: absolute;
+    right: 18px;
+    top: -18px;
+}
+.open{
+    transition: 1s;
+    display: block;
+}
+
+.camera_msg{
+    line-height: 66px;
+    height: 66px;
+}
+.camera_msg p {
+    color: #3397cb;
+    font-size: 18px;
+    font-weight: bold;
+}
+.camera_msg p span{
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.camera_msg p:before{
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    content: '';
+    height: 20px;
+    width: 13px;
+    background: url('../Images/Other/font_icon.png') no-repeat;
+    /*vertical-align: middle;*/
+    background-size: 100% 100%;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.person_msgImg{
+    width: 183px;
+    height: 183px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 15px;
+    background: url(../Images/Other/img_border.png) no-repeat;
+    background-size: 100% 100%;
+
+}
+.person_msgImg img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #2cfcfc;
+}
+
+.alarm_massage{
+    box-sizing: border-box;
+    margin-right: 20px;
+    padding:26px 0;
+    float: left;
+    color: #0b92d0;
+    font-size: 14px;
+    text-shadow: -1px 1px 0 #171717;
+
+}
+
+.detail_icon{
+    float: left;
+    margin-top: 20px;
+
+}
+.detail_icon img{
+    animation: detailIcon .3s ease 1
+}
+@keyframes detailIcon {
+    0% {transform: scale(1.2)}
+    100%{ transform: scale(1)}
+}
+.detail_btn{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    box-sizing: border-box;
+    width: 110px;
+
+}
+.detail_btn input{
+    width: 109px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 16px;
+    border: 1px solid #71a6c9;
+}
+.detail_btn input:nth-of-type(3){
+    margin-top: 10px;
+    /*background: #587d91;*/
+}
+.detail_btn input:nth-of-type(2){
+    margin-top: 10px;
+}
+.main_person{
+    width: 100%;
+}
+.person_alarm {
+    position: relative;
+    height: 220px;
+    border-top: 2px solid #00ACE4;
+    border-bottom: 2px solid #00ACE4;
+    margin: 20px 0;
+    margin-top: 0;
+    color: #83CCE4;
+    text-shadow: 1px 1px 1px #030242;
+    background-color: #005075;
+}
+.camera_msg p {
+    color: #83cce4;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: -1px 1px 0 #171717;
+}
+.alarm_massage {
+    box-sizing: border-box;
+    margin-right: 20px;
+    padding: 26px 0;
+    float: left;
+    color: #83cce4;
+    font-size: 14px;
+}
+.alarm_media {
+    position: relative;
+    height: 246px;
+    border-top: 2px solid #5ca1ba;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+.detail_btn input {
+    margin: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    background: #005982;
+    padding-left: 0;
+    font-weight: 600;
+    cursor: pointer;
+    width: 109px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 16px;
+    border: 1px solid #71a6c9;
+}
+.detail_btn {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    box-sizing: border-box;
+    width: 110px;
+}
+.alarm_info {
+    height: 100%;
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: whitesmoke;
+    position: relative;
+}
+.person_i{
+    width: 20px;
+    height:30px;
+    position: absolute;
+    bottom: -28px;
+    left: 300px;
+    background: url("../Images/ICON/go_open.png") no-repeat center;
+}
+.person_i.opening{
+    background: url("../Images/ICON/go_close.png") no-repeat center;
+}
+
+.alarm_massage p:nth-of-type(1) {
+    width: 120px;
+    box-sizing: border-box;
+    padding-left: 24px;
+    background: url(../Images/Other/name_bg.png);
+    background-size: 100% 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+.alarm_name {
+    height: inherit;
+}
+.alarm_massage p:nth-of-type(1),.alarm_massage p:nth-of-type(2){
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+}
+.alarm_massage p:nth-of-type(2){
+    font-size: 16px;
+    width: 80px;
+    height: 40px;
+    font-weight: bold;
+}
+.alarm_massage p:nth-of-type(3) {
+    margin: 10px 0 50px;
+    font-size: 16px;
+    text-align: left;
+}
+.alarm_massage p:nth-of-type(4), .alarm_massage p:nth-of-type(5) {
+    text-shadow: -1px 1px 0 #171717;
+}
+.result_detail,.result_add{
+    cursor: pointer;
+}
+
+/*人物详情*/
+.left{
+    float: left;
+}
+.person_msg {
+    position: relative;
+    border-top: 2px solid #7eccef;
+    padding: 0 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #00aae2;
+}
+.line_text {
+    position: absolute;
+    left: 20px;
+    top: -10px;
+    color: #6697ae;
+    font-weight: bold;
+    background: #002c40;
+    padding: 0 5px;
+    padding-right: 0px;
+    letter-spacing: 8px;
+}
+.pm_img{
+    width: 168px;
+    height: 166px;
+    background: url(../Images/Other/img_border.png) no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.pm_img img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #2cfcfc;
+}
+.pm_msg{
+    width: calc(100% - 168px);
+    height: 166px;
+    box-sizing: border-box;
+    padding-left: 15px;
+}
+.pm_msg>div,.pm_msg>p{
+    height: 33px;
+    line-height: 33px;
+}
+.pm_msg div p{
+    width: 50%;
+}
+.add_msg{
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 15px;
+}
+.add_msg>div,.add_msg>p{
+    height: 33px;
+    line-height: 33px;
+}
+.add_msg div p{
+    width: 50%;
+}
+.pm_ft_wrapper {
+    width: 100%;
+    height: 300px;
+}
+.pm_ft_img{
+    width: 25%;
+    height: 50%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.pm_ft_img img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #2cfcfc;
+
+}
+.goBack {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+#base_msg {
+    margin-top: 36px;
+}

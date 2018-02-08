@@ -1,0 +1,103 @@
+.main{
+
+}
+.sel_wrap .select{
+    /*color: whitesmoke;*/
+}
+.sel_wrap label{
+    /*color: whitesmoke;*/
+
+}
+.filtrate_input{
+    margin-top: 0;
+}
+.sel_wrap{
+    border: 2px solid #00ace4;
+    border-radius: 5px;
+    height: 30px;
+    margin-top: 3px;
+}
+select{
+    background: #005982;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 60px;
+    /*color: whitesmoke;*/
+    border-width: 2px;
+}
+option{
+    text-align: center;
+    font-weight: 600;
+}
+input[type="button"]{
+    width: 80px;
+    color: #83CCE4;
+}
+.header_search{
+    margin: 20px 0 40px;
+    display: inline-block;
+}
+.timeControl{
+    position: relative;
+}
+.timePlug{
+    position: absolute;
+    width: 426px;
+    left: 50%;
+    bottom: -50px;
+    background: #005982;
+    color: whitesmoke;
+    padding: 5px 20px;
+    z-index: 10000;
+    border: 1px solid #00ace4;
+}
+#startTime{
+    border: 2px solid #00ace4;
+    display: inline-block;
+    width: 180px;
+    padding: 3px 2px;
+    font-size: 13px;
+    text-align: center;
+    height: auto;
+}
+#endTime{
+    border: 2px solid #00ace4;
+    display: inline-block;
+    width: 180px;
+    font-size: 13px;
+    text-align: center;
+    padding: 3px 2px;
+    height: auto;
+
+}
+.hide{
+    display: none;
+}
+#statistic_charts{
+    float: right;
+    height: 600px;
+    width: 46%;
+    margin: 2% 20px;
+}
+#statistic_charts_z{
+    height: 600px;
+    float: left;
+    width: 46%;
+    margin: 2% 20px;
+}
+#timeWrap{
+    display: inline-block;
+}
+#S_search{
+    float: right;
+    margin-right: 30px;
+}
+td{
+    background: none;
+}
+#selectTime{
+    display: inline-block;
+    border: 2px solid #00ace4;
+    padding: 3px 10px;
+    border-radius: 5px;
+}

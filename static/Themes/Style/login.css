@@ -1,0 +1,92 @@
+html,
+body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	scrollbar-face-color: #006a98;
+	scrollbar-base-color: #003f5a;
+	scrollbar-arrow-color: #006a98;
+	background: url(../Images/Login/login_bg.png) repeat-x top;
+	/*background-size: 1px 100%;*/
+	overflow: auto;
+}
+
+h1 {
+	font-family: "黑体";
+	font-size: 32px;
+	font-weight: 900;
+	width: 1024px;
+	text-align: center;
+	margin: 120px auto 70px;
+	color: white;
+}
+h1 img{
+	width: 550px;
+}
+.login_wrap{
+	width: 1024px;
+	margin: auto;
+	height: 300px;
+	box-sizing: border-box;
+	background: url(../Images/Login/login.png) no-repeat center top;
+	padding: 10px;
+	position: relative;
+	
+}
+.login_wrap>div{
+	margin: 100px 0 10px 360px;
+	height: 30px;
+	line-height: 30px;
+}
+.login_wrap>div *{
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+.login_wrap>div>img{
+	height: 100%;
+}
+.login_wrap>div input{
+	height: 30px;
+	line-height: 30px;
+	width: 200px;
+	border: 1px solid #25ace4;
+	background: #0a2a43;
+	border-radius: 3px;
+	color: white;
+	box-sizing: border-box;
+	padding-left: 10px;
+}
+#error{
+	color: red;
+	font-size: 12px;
+	height: 20px;
+	margin: 2px 0 2px 400px;
+	line-height: 20px;
+}
+.login_wrap>.password{
+	margin: 15px 0 0px 360px;
+	height: 30px;
+	line-height: 30px;
+}
+#login{
+	width: 120px;
+	height: 34px;
+	line-height: 34px;
+	background: #00ace4;
+	color: white;
+	border: none;
+	border-radius: 2px;
+	margin-left: 430px;
+	cursor: pointer;
+}
+#help{
+	position: absolute;
+	right: 30px;
+	bottom: 20px;
+	color: #00A0E9;
+	text-decoration: none;
+}
+#help:hover{
+	color: whitesmoke;
+}

@@ -1,0 +1,9 @@
+.person_wrapper{
+	width:100%!important;
+}
+.box{
+	float: left;
+	width: 33.33%;
+	text-align: center;
+}
+

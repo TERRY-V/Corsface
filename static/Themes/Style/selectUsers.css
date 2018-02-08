@@ -1,0 +1,41 @@
+html,body,table,tr,tbody,.tableContent{height: 100%}
+.spnTab{display: inline-block;height: 30px;border: 1px solid #00ace4;border-bottom: 0px;border-top-left-radius:6px;border-top-right-radius:6px;line-height: 30px;padding:0 10px 0 10px;cursor: hand;}
+.spnSpace{display: inline-block;width: 5px;}
+
+.spnToLeft{display: block;width: 25px;height:25px;border-radius: 50%; margin-bottom:10px;background:#0a71a2 url('/CorsFace/Themes/Images/ICON/left.png') center; }
+.spnToRight{display: block;width: 25px;height:25px; border-radius: 50%;margin-bottom:10px;background:#0a71a2 url('/CorsFace/Themes/Images/ICON/right.png') center; }
+.spnToRight:hover,.spnToLeft:hover{
+  cursor: pointer;
+}
+td {
+  height: 100%;
+}
+td:nth-of-type(1){
+  width: 32%;
+}
+td:nth-of-type(2){
+  width: 32%;
+}
+td:nth-of-type(4){
+  width: 32%;
+}
+ul.ztree {
+  background: #002c40;
+}
+.ztree li ul {padding: 0 0 0 14px;}
+.tableContent {box-sizing: border-box; padding-top: 20px; padding-left: 20px}
+.btn{ width: 68px!important; height: 24px; line-height: 24px}
+.ztree {padding: 0 20px; box-sizing: border-box; overflow:hidden;}
+.ztree li a{width: 100px}
+#divUserSech{
+  box-sizing: border-box;
+  padding-top: 46px;
+}
+#search_user{
+  margin-bottom: 30px;
+}
+.tabWrapper {text-align: left; height: 8%}
+.divUserTree{height: 78%; border: 1px solid #00ace4;padding-top: 20px; box-sizing: border-box;}
+.divUserSech{height: 78%; border: 1px solid #00ace4}
+.btnWrapper {position: absolute; bottom: 10px; right: 20px}
+.selectRect {width: 170px;height: 300px}

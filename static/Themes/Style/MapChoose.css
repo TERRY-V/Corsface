@@ -1,0 +1,548 @@
+﻿body, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, fieldset,
+	legend, input, textarea, select {
+	margin: 0;
+	padding: 0
+}
+::-webkit-scrollbar {
+	width: 0;
+	background-color: #33444c
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #87949a;
+	border-radius: 8px
+}
+/*调整placeholder颜色*/
+::-webkit-input-placeholder { color:#83cce4; }
+::-moz-placeholder { color:#83cce4; } /* firefox 19+ */
+:-ms-input-placeholder { color:#83cce4; } /* ie */
+input:-moz-placeholder { color:#83cce4; }
+
+body {
+	font: 14px "微软雅黑", "Arial Narrow", HELVETICA;
+	background: #fff;
+	-webkit-text-size-adjust: 100%;
+	scrollbar-face-color: #00A0E9;
+	scrollbar-Shadow-color: #adadad;
+	/*滑块边色*/
+}
+
+img {
+	width: auto;
+	height: auto;
+	/*max-width: 100%;*/
+	/*max-height: 100%;*/
+}
+
+a {
+	color: #0f0f0f;
+	text-decoration: none
+}
+
+a:hover {
+	color: #2cfcfc;
+	text-decoration: none
+}
+
+em {
+	font-style: normal
+}
+
+li {
+	list-style: none
+}
+
+img {
+	border: 0;
+	vertical-align: middle
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+.alarmIcon {
+	background-position: center 25px;
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	height: 90px !important;
+	padding-top: 70px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+p {
+	word-wrap: break-word
+}
+
+#drag {
+	cursor: move;
+}
+
+.btn {
+	border: 2px solid #7ecefd;
+	background: #005982;
+	text-align: center;
+	border-radius: 5px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.img-mid {
+	text-align: center;
+}
+
+.img-mid span {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.img-mid img {
+	vertical-align: middle;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.hide {
+	display: none;
+}
+
+.act {
+	background: url(../Images/Default/sbar.png) no-repeat center;
+}
+
+/*公共部分样式*/
+.bg_header_1 {
+	width: 100%;
+	background: url(../Images/Default/titleMid.png) repeat-x top;
+	height: 40px;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 40px;
+	color: #83CCE4;
+	font-weight: 600;
+	line-height: 40px;
+}
+
+.bg_header_2 {
+	width: 100%;
+	height: 100%;
+	background: url(../Images/Default/titleLeft.png) no-repeat left top;
+}
+
+.bg_header_3 {
+	width: 100%;
+	height: 100%;
+	background: url(../Images/Default/titleRight.png) no-repeat right top;
+	padding-left: 20px;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+.bg_header_3>span {
+	float: right;
+	margin-right: 30px;
+	font-size: 13px;
+	font-weight: 100;
+	cursor: pointer;
+}
+
+.content {
+	border: 2px solid #00ACE4;
+	border-top-color: #33444c;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	background-color: #33444c
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #87949a;
+	border-radius: 8px
+}
+/*调整placeholder颜色*/
+::-webkit-input-placeholder {
+	color: #83cce4;
+}
+
+::-moz-placeholder {
+	color: #83cce4;
+} /* firefox 19+ */
+:-ms-input-placeholder {
+	color: #83cce4;
+} /* ie */
+input:-moz-placeholder {
+	color: #83cce4;
+}
+
+/*下拉菜单样式处理*/
+.sel_wrap {
+	display: inline-block;
+	height: 26px;
+	background: #0a364e url(../Images/Default/select_bg.png) no-repeat 155px
+		1px;
+	background-size: 22px 22px;
+	color: #68acca;
+	font-size: 14px;
+	box-sizing: border-box;
+	border: 1px solid #83cce4;
+	cursor: pointer;
+	position: relative;
+	width: 180px;
+	_filter: alpha(opacity = 0);
+}
+
+.sel_wrap label {
+	text-align: center;
+	font-size: 13px;
+	z-index: 2;
+	color: #83cce4;
+	line-height: 26px;
+	height: 26px;
+	display: block;
+	font-weight: 600;
+}
+
+.sel_wrap .select {
+	width: 100%;
+	height: 26px;
+	line-height: 26px;
+	color: #83cce4;
+	z-index: 4;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	*margin-top: 12px;
+	filter: alpha(opacity = 0);
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-color: #002c40;
+	overflow: hidden;
+	min-height: 768px;
+	min-width: 1024px;
+	position: relative;
+}
+
+.wrapper_bg {
+	overflow: hidden;
+}
+
+body, html {
+	background-color: #002c40;
+	height: 100% !important;
+}
+
+
+/*首页部分样式*/
+.main {
+	font-size: 14px;
+	color: #83CCE4;
+	padding: 1px;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+/*系统设置*/
+.setting_list {
+	position: absolute;
+	left: 52px;
+	top: 110px;
+	overflow: auto;
+	z-index: 4;
+	width: 17.3%;
+	background: #105a81;
+}
+
+.setting_list_header {
+	font-size: 18px;
+	color: white;
+	height: 50px;
+	line-height: 50px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.setting_list li {
+	height: 40px;
+	line-height: 40px;
+	width: 90%;
+	margin-left: 10%;
+	font-size: 16px;
+	color: white;
+	text-align: center;
+}
+
+.setting_list {
+	background: url("../Images/Default/siderbar_bg.png");
+	background-size: 100% 100%;
+}
+
+.setting_list_header {
+	background: url("../Images/Default/siderbar_head.png");
+	background-size: 100% 100%;
+}
+
+/*摄像头部分*/
+.main_camera {
+	width: 260px;
+	float: left;
+	margin: 0px 20px;
+	font-size: 12px;
+	height: 100%;
+}
+
+.camera_header {
+	height: 40px;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 40px;
+	box-sizing: border-box;
+	color: #83CCE4;
+	position: relative;
+}
+
+.camera_header span {
+	float: right;
+	margin-right: 30px;
+	font-size: 16px;
+	font-weight: 100;
+}
+
+.pattern {
+	width: 30px;
+	background: url(../Images/ICON/map_icon.png) no-repeat center;
+	height: 40px;
+}
+
+.camera_Bmap {
+	width: 100%;
+	height: 100%;
+}
+
+.camera_change_group ul {
+	padding: 10px 0;
+}
+
+.camera_change_group_head {
+	background: url(../Images/Default/cameratitel.png) no-repeat left top;
+	background-size: 100% 100%;
+	padding-left: 12px;
+}
+
+.camera_content {
+	border: 2px solid #00ACE4;
+	box-sizing: border-box;
+	height: calc(100% - 40px);
+	overflow-y: auto;
+	border-top: none;
+	background: url("../Images/Default/rtsp_bg.png") repeat center;
+	/* #004c6e; */
+}
+
+.camera_change_group_head, .camera_content li {
+	height: 40px;
+	line-height: 40px;
+	box-sizing: border-box;
+	color: #83cce4;
+	font-size: 14px;
+}
+
+.camera_change_group_head span {
+	float: right;
+	width: 16px;
+	height: 100%;
+	margin-right: 30px;
+	cursor: pointer;
+	background: url(../Images/ICON/openList.png) no-repeat center;
+	background-size: 16px;
+}
+
+.camera_change_group_head .cl {
+	background: url(../Images/ICON/closeList.png) no-repeat center;
+	background-size: 16px;
+}
+
+.camera_content li {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding-left: 60px;
+	cursor: pointer;
+	height: 32px;
+	line-height: 32px;
+	font-size: 13px;
+	background: url(../Images/ICON/camera_icon.png) no-repeat 30px 5px;
+	background-size: 18px 20px;
+}
+
+.camera_content .camera_person {
+	font-size: 12px;
+	padding-left: 14px;
+	background: url(../Images/ICON/person_icon1.png) no-repeat left center;
+	background-size: 12px 12px;
+	margin-left: 5px;
+}
+
+.camera_content .camera_alarm {
+	font-size: 12px;
+	padding-left: 14px;
+	margin-left: 5px;
+	background: url(../Images/ICON/alarm_icon_min.png) no-repeat left center;
+	background-size: 12px 12px;
+}
+
+/*视频播放部分*/
+.main_monitoring {
+	margin: 0 20px 0 300px;
+	height: 100%;
+}
+
+.monitoring_header {
+	height: 40px;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 40px;
+	box-sizing: border-box;
+	color: #83CCE4;
+}
+
+.monitoring_rtsp {
+	width: 100%;
+	box-sizing: border-box;
+	height: calc(100% - 40px);
+	border: 2px solid #00ACE4;
+	position: relative;
+	border-top: none;
+	overflow: hidden;
+	background: url("../Images/Default/rtsp_bg.png") repeat center;
+}
+
+.monitoring_rtsp_photo {
+	/* 	width:100%;
+	height:820px;
+ */
+	margin: 100px;
+}
+
+.layui-layer-title {
+	background: #00405c !important;
+	color: whitesmoke !important;
+	box-sizing: border-box;
+	border: 2px solid #00ACE4;
+}
+
+.layui-layer-btn1 {
+	background: #50849b !important;
+	color: whitesmoke !important;
+	border: 1px solid #78c1eb;
+}
+
+.layui-layer-btn0 {
+	background: #005982 !important;
+	color: whitesmoke !important;
+	border: 1px solid #78c1eb;
+}
+
+.layui-layer-content {
+	background: #002c40 !important;
+	box-sizing: border-box;
+	border: 2px solid #00ACE4;
+	border-top: none;
+}
+
+.layui-layer-btn {
+	background: #06405c !important;
+}
+
+.main_monitoring2{
+	margin: 0px 0px 0px 0px;
+}
+
+.Map_PhotoShow {
+	margin: 10px 10px 10px 10px;
+	float:left;
+	width: 430px;
+	height: 270px;
+	box-sizing: border-box;
+	/* border: 2px solid #00ACE4; */
+	position: relative;
+	overflow: hidden;
+	background: url("../Images/Default/rtsp_bg.png") repeat-x center;
+}
+
+.Map_PhotoShow_Top {
+	height: 50px;
+	width: 100%;
+	background-color: transparent;
+}
+
+.Map_Photo_Font {
+	color: white;
+	background-color: transparent;
+}
+
+.Map_PhotoShow_Img {
+	height: 170px;
+	background-color: transparent;
+}
+
+.Map_PhotoShow_Img1 {
+	text-align: center;
+	background-color: transparent;
+}
+
+.Map_PhotoShow_Floor {
+	bottom:0 ;
+	height: 50px;
+	width: 100%;
+	background-color: transparent;
+}
+
+.Map_PhotoShow_Floor_Button {
+	width: 132px;
+	height: 100%;
+	border-color: #00ACE4;
+	outline: none;
+	valign: bottom;
+	background-color: transparent;
+}
+
+.uploadImg{
+	margin: 20px 20px 20px 40px;
+	text-align: left;
+	width: 433px;
+	height: 300px;
+	box-sizing: border-box;
+	border: 2px solid #00ACE4;
+	position: relative;
+	overflow: hidden;
+	background: url("../Images/Default/rtsp_bg.png") repeat-x center;
+}
+.monitoring_add{
+	
+}

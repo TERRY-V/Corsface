@@ -1,0 +1,229 @@
+.main{
+
+}
+.sel_wrap .select{
+    /*color: whitesmoke;*/
+}
+.sel_wrap label{
+    /*color: whitesmoke;*/
+
+}
+.filtrate_input{
+    margin-top: 0;
+}
+.sel_wrap{
+    border: 2px solid #00ace4;
+    border-radius: 5px;
+    height: 30px;
+    margin-top: 3px;
+}
+select{
+    background: #005982;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 60px;
+    /*color: whitesmoke;*/
+    border-width: 2px;
+}
+option{
+    text-align: center;
+    font-weight: 600;
+}
+input[type="button"]{
+    width: 80px;
+    color: #83CCE4;
+}
+.header_search{
+    margin: 20px 0 40px;
+    display: inline-block;
+}
+.timeControl{
+    position: relative;
+}
+.timePlug{
+    position: absolute;
+    width: 426px;
+    left: 50%;
+    bottom: -50px;
+    background: #005982;
+    color: whitesmoke;
+    padding: 5px 20px;
+    z-index: 10000;
+    border: 1px solid #00ace4;
+}
+#startTime{
+    border: 2px solid #00ace4;
+    display: inline-block;
+    width: 180px;
+    padding: 3px 2px;
+    font-size: 13px;
+    text-align: center;
+    height: auto;
+}
+#endTime{
+    border: 2px solid #00ace4;
+    display: inline-block;
+    width: 180px;
+    font-size: 13px;
+    text-align: center;
+    padding: 3px 2px;
+    height: auto;
+
+}
+.hide{
+    display: none;
+}
+#statistic_charts{
+    float: right;
+    height: 600px;
+    width: 46%;
+    margin: 2% 20px;
+}
+#statistic_charts_z{
+    height: 600px;
+    float: left;
+    width: 46%;
+    margin: 2% 20px;
+}
+#timeWrap{
+    display: inline-block;
+}
+#S_search{
+    float: right;
+    margin-right: 30px;
+}
+td{
+    background: none;
+}
+#selectTime{
+    display: inline-block;
+    border: 2px solid #00ace4;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+label{
+    display: inline;
+    margin-left: 5px;
+    margin-right: 15px;
+    line-height: 35px;
+}
+.radio_bg{
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    vertical-align: middle;
+    background: url("../Images/Other/radio_bg.png") no-repeat;
+    margin-right: -15px;
+    border-radius: 20px;
+}
+.radio_bg.act{
+    background: url("../Images/Other/radio_act_bg.png") no-repeat;
+
+}
+input[type="radio"]{
+    opacity: 0;
+}
+.content_left{
+    float: left;
+    width: 320px;
+    height: 100%;
+}
+.content_right{
+    margin-left: 330px;
+}
+#statistic_charts_a{
+    width: 60%;
+    margin-left: 5%;
+    height: 280px;
+    display: inline-block;
+}
+#statistic_charts_p{
+    width: 25%;
+    margin: 0 5% 0 0;
+    height: 280px;
+    display: inline-block;
+}
+#statistic_charts_z{
+    height: 400px;
+    width: 42%;
+    margin: 20px 2% 0 5%;
+}
+#statistic_charts{
+    height: 400px;
+    width: 42%;
+    margin: 20px 5% 0 2%;
+
+}
+.header_search{
+    margin-bottom: 20px;
+}
+.main{
+    overflow: hidden;
+}
+.content_left{
+    height: 100%;
+}
+.main_statistics{
+    height: 100%;
+}
+.statistics_content{
+    border: 2px solid #00aae2;
+    border-top: none;
+    height: 870px;
+    background: #00374f;
+    overflow: hidden;
+}
+h1{
+    color: #83CCE4;
+    margin: 20px 0 10px;
+    font-size: 18px;
+}
+.today_num{
+    box-sizing: border-box;
+    padding-left: 60px;
+    margin: 50px 0;
+    font-family: '黑体';
+    font-size: 16px;
+    font-weight: bold;
+}
+.today_num>div{
+    line-height: 40px;
+}
+.today_num>span{
+    color: whitesmoke;
+}
+td{
+    height: 40px;
+    font-size: 14px;
+}
+thead{
+    background: url("../Images/Other/table_head_bg.png") repeat-x;
+    background-size: 1px 100%;
+}
+table>thead{
+    height: 40px;
+    line-height: 40px;
+}
+table{
+    width: 94%;
+}
+.num_span{
+    font-size: 24px;
+    font-weight: 600;
+    color: #e27e2e;
+}
+.segmentation{
+    border-top: 1px dashed #00a0e9;
+    margin: 40px 2%;
+}
+.sel_wrap{
+    width: 108px;
+    background: url("../Images/Default/select_bg.png") no-repeat 80px 1px;
+    background-size: 24px 24px;
+}
+.filtrate_input span{
+    width: auto;
+}
+tr{
+    border-bottom: 1px solid #5ca0b9;
+}

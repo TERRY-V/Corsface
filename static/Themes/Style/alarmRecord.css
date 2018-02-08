@@ -1,0 +1,653 @@
+/*今日统计*/
+.sel_wrap {
+	background: #09354c url(../Images/Default/select_bg.png) no-repeat 168px 2px;
+	border: 1px solid #00a0e9;
+}
+.main_statistic {
+	float: right;
+	width: 41%;
+}
+
+.main_wrapper {
+	/*min-width: 1801px;*/
+}
+
+.main_header {
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: 600;
+	box-sizing: border-box;
+	color: #83CCE4;
+}
+
+.statistic_content {
+	height: 170px;
+	box-sizing: border-box;
+	border: 2px solid #00ace4;
+	border-top: none;
+	background: #003c57;
+}
+
+.statistic_content>div {
+	width: 25%;
+	float: left;
+	line-height: 80px;
+	padding-left: 20px;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+.statistic_content img {
+	width: 60px;
+	height: 60px;
+	margin-right: 10px;
+}
+
+
+/*筛选项*/
+
+.main_filtrate {
+	float: left;
+	width: 58%;
+	/*min-width: 954px;*/
+}
+
+.filtrate_content {
+	position: relative;
+	height: 170px;
+	box-sizing: border-box;
+	border: 2px solid #00ace4;
+	border-top: none;
+	color: #83cce4;
+	font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
+	background: #003c57;
+}
+
+
+
+
+.filtrate_content select {
+	width: 100px;
+	background: #00618B;
+}
+
+.filtrate_input {
+	float: left;
+	margin-top: 5px;
+	height: 50px;
+	width: 30%;
+	min-width: 292px;
+	line-height: 50px;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+.filtrate_input label{
+	padding-right: 20px;
+	/*display: inline-block;*/
+}
+.filtrate_input_radio label {
+	display: inline-block;
+}
+
+
+.filtrate_input input {
+	background: #0a364d;
+	color: #83cce4;
+	height: 15px;
+	width: 15px;
+	border-radius: 10px;
+	border: 1px solid #83cce4;
+}
+.filtrate_input_radio{
+	display: inline-block;
+}
+
+.filtrate_submit {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	width: 79px;
+	height: 30px;
+	border: 2px solid #83cce4;
+	border-radius: 10px;
+	margin-top: 15px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: 600;
+	cursor: pointer;
+}
+.filtrate_submit:hover {
+	background: #0a364d;
+}
+.filtrate_submit:active{
+	opacity: .8;
+}
+
+
+/*报警记录*/
+.main{
+	padding: 20px 0;
+	width: 98%;
+	/*min-width: 1629px;*/
+	margin: 0 auto;
+}
+.main-wrapper {
+	margin-bottom: 20px;
+	overflow: hidden;
+	/*min-width: 1592px;*/
+}
+.main_alarm {
+	width: 100%;
+}
+.alarm_content_wrap{
+	overflow: auto;
+	height: 584px;
+	border: 2px solid #00ace4;
+	border-top: none;
+	background: #003c57;
+	margin-bottom: 18px;
+}
+table{
+	margin: 20px auto;
+	width: 96%;
+	border: none;
+}
+table>thead{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	color: white;
+}
+td,th{
+	border: none;
+}
+td{
+	height: 150px;
+	text-align: center;
+	
+}
+table img{
+	width: 100px;
+	height: 100px;
+}
+.alarm_info_btn{
+	height: 30px;
+	width: 80%;
+	border: 2px solid #83cce4;
+	border-radius: 5px;
+	line-height: 30px;
+	text-align: center;
+	margin: auto;
+	min-width: 60px;
+}
+
+.pageManage {
+	display: block;
+	margin: 0;
+	float: right;
+	white-space: nowrap;
+	text-align: right;
+}
+
+.pageManage:after {
+	content: ' ';
+	clear: both;
+}
+
+.pageList {
+	float: left;
+	margin: 0;
+	padding:0 10px;
+}
+
+.pageList>.active {
+	z-index: 3;
+	color: #fff;
+	cursor: default;
+	background-color: #337ab7;
+	border-color: #337ab7;
+}
+
+
+.pageList>li {
+	cursor: pointer;
+	color: #83CCE4;
+	list-style: none;
+	position: relative;
+	float: left;
+	padding: 6px 12px;
+	margin-left: -1px;
+	line-height: 1.42857143;
+	text-decoration: none;
+	border: 1px solid #83CCE4;
+}
+.search_wrap{
+	padding: 15px;
+}
+.search_wrap>div{
+	margin-left: 10px;
+}
+.pageManage input{
+	width: 40px;
+	height: 20px;
+	margin: 0 5px;
+}
+
+/*报警查看页面*/
+.main_person{
+	width: 96%;
+	margin: auto;
+}
+.person_content{
+	border: 2px solid #00ACE4;
+	border-top: none;
+	border-radius: 2px;
+	padding-top: 1px;
+	
+}
+.person_alarm{
+	height: 220px;
+	border: 1px solid #0a6f9e;
+	margin: 20px 0;
+	border-left-width: 20px;
+	border-right-width: 20px;
+}
+.person_info{
+	height: 200px;
+	margin: 10px 0;
+	float: left;
+	width: 330px;
+	box-sizing: border-box;
+	border: 2px solid #0A6F9E;
+	border-radius: 10px;
+	margin-left: 1%;
+	font-size: 14px;
+	color: whitesmoke;
+	position: relative;
+	padding: 5px 0 0 10px;
+	background-image: url(../Images/Default/alarm_card_bg.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
+}
+
+p{
+	margin: 5px;
+	width: 100%;
+	float: left;
+	max-height: 19px;
+}
+.person_img{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 90px;
+	height: 90px;
+	box-sizing: border-box;
+	border: 2px solid #0A6F9E;
+	border-radius: 6px;
+}
+.person_img img{
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+}
+.alarm_info{
+	width: 270px;
+	height: 100%;
+	float: left;
+	margin-left: 5%;
+	color: whitesmoke;
+}
+.alarm_btn{
+	width: 130px;
+	float: left;
+	margin-left: 5%;
+	margin-top: 170px;
+}
+.alarm_level_icon{
+	height: 80px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	box-sizing: border-box;
+}
+.alarm_level_icon img{
+	width: 40px;
+	height: 40px;
+}
+.alarm_type{
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	text-align: center;
+}
+.alarm_camera,.alarm_time,.alarm_status{
+	height: 30px;
+	padding-left: 10px;
+	box-sizing: border-box;
+	line-height: 30px;
+	
+}
+
+.content_head{
+	position: absolute;
+	top: -15px;
+	left: 20px;
+	font-size: 18px;
+	background: #002c40;
+	color: #5ca1ba;
+	font-weight: 600;
+}
+.alarm_media{
+	position: relative;
+	height: 300px;
+	border-top: 1px solid #5ca1ba;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.media_video{
+	width: 30%;
+	height: 100%;
+	box-sizing: border-box;
+	float: left;
+}
+.media_BImg{
+	float: left;
+	width: 30%;
+	height: 100%;
+	text-align: center;
+}
+.media_BImg img{
+	width: 96%;
+	border: 1px solid #00ace4;
+	height: 100%;
+}
+.media_images{
+	width: 70%;
+	float: left;
+	height: 100%;
+	overflow: auto;
+}
+.media_images img{
+	width: 120px;
+	height: 120px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	border: 1px solid #00ace4;
+}
+.person_images{
+	position: relative;
+	border-top: 1px solid #5ca1ba;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.person_images img{
+	width: 200px;
+	height: 200px;
+	margin: 10px;
+}
+.alarm_card_wrapper {
+	width: 98%;
+
+	margin: 0 auto;
+	padding-top: 10px;
+}
+.alarm_card {
+	position: relative;
+	float: left;
+	width: 19%;
+	height: 261px;
+	/*border:2px solid #00ACE4;*/
+	margin: 0.5%;
+	background-image: url(../Images/Default/alarm_card_bg.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	min-width: 201px;
+	animation: alarmCard .2s ease 1 ;
+}
+@keyframes alarmCard {
+	0%   {transform: scale(.7)}
+	100% {transform: scale(1)}
+}
+
+.alarm_card:hover{
+	cursor: pointer;
+}
+.detail_state{
+	position: absolute;
+	right: 0;
+	top:0;
+	z-index: 3;
+}
+.alarm_snapimg_wrapper {
+	position: relative;
+	box-sizing: border-box;
+	padding: 10px;
+	color: #fff;
+}
+.alarm_camera_time{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.snap_img {
+	width: auto;
+	height: auto;
+	min-width: 208px;
+	min-height: 117px;
+	max-width: 100%;
+	max-height: 100%;
+}
+.alarm_msg {
+	position: absolute;
+	width: 89%;
+	bottom: 15px;
+	left: 20px;
+}
+
+.alarm_face_img {
+	width: 98px;
+	height: 98px;
+	border: 1px solid #39bde9;
+	border-radius: 6px;
+	overflow: hidden;
+	margin-right: 10px;
+}
+.alarm_name{
+	height: inherit;
+}
+.left{
+	float: left;
+}
+.alarm_msg_wrap{
+	position: relative;
+	top:60px;
+}
+.alarm_name span{
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.alarm_snap_img{
+	float: left;
+	margin-bottom: 10px;
+}
+.person_msg_group{
+	float: right;
+	width: calc(100% - 90px);
+}
+
+.face_msg {
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	line-height: 21px;
+}
+.face_time{
+	font-size: 12px;
+}
+.alevel_icon{
+	width: 25px;
+	height: 25px;
+}
+.deal_wrap {
+	position: relative;
+	height: 41px;
+	line-height: 39px;
+	font-size: 16px;
+}
+.deal_wrap_item {
+	float: left;
+}
+
+
+.alarn_deal_btn{
+	position: absolute;
+	right: 0px;
+	bottom: 10px;
+	display: inline-block;
+	padding: 0 10px;
+	width: 64px;
+	height: 29px;
+	line-height: 29px;
+	background: #005982;
+	border: 1px solid #0DC4EF;
+	border-radius: 6px;
+	text-align: center;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 15px;
+}
+.alarn_deal_btn:hover {
+	color: #ffffff;
+}
+.msg_wrap {
+	height: 211px;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+#startTime{
+	width: 150px !important;
+	margin-right: 30px;
+	border-radius: 10px;
+	border: 1px solid #83cce4;
+	height: 26px;
+}
+#endTime{
+	width: 150px !important;
+	margin-left: 30px;
+	border-radius: 10px;
+	border: 1px solid #83cce4;
+}
+.filtrate_time{
+	width:500px;
+}
+input[type="text"] {
+	width: 80px !important;
+	height: 26px;
+	margin-left: 15px;
+}
+
+.layer_content_form{
+	margin: 0 auto;
+}
+.layer_content_form input {
+	margin-right: 10px;
+}
+.layer_content_form label{
+	height: 35px;
+	padding-left: 37%;
+	color: #fff;
+	line-height: 35px;
+	font-size: 16px;
+}
+.right{
+	float: right;
+}
+.alarm_msg_constent{
+	margin-top: 57px;
+}
+.alarm_msg_right{
+	margin-top: 50px;
+}
+@media screen and (min-width: 1500px) and (max-width: 1650px) {
+	.filtrate_content {
+		position: relative;
+		height: 223px;
+		box-sizing: border-box;
+		border: 2px solid #00ace4;
+		border-top: none;
+		color: #83cce4;
+		font-size: 12px;
+		background: #003c57;
+	}
+	.statistic_content {
+		height: 223px;
+		box-sizing: border-box;
+		border: 2px solid #00ace4;
+		border-top: none;
+		background: #003c57;
+	}
+
+
+}
+
+@media screen and (max-width: 1600px) {
+	.alarm_card {
+		position: relative;
+		float: left;
+		width: 24%;
+		height: 261px;
+		/*border:2px solid #00ACE4;*/
+		margin: 0.5%;
+		background-image: url(../Images/Default/alarm_card_bg.png);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		min-width: 201px;
+	}
+
+}
+@media screen and (max-width: 1500px) {
+	.filtrate_content {
+		position: relative;
+		height: 223px;
+		box-sizing: border-box;
+		border: 2px solid #00ace4;
+		border-top: none;
+		color: #83cce4;
+		font-size: 12px;
+		background: #003c57;
+	}
+	.statistic_content {
+		height: 223px;
+		box-sizing: border-box;
+		border: 2px solid #00ace4;
+		border-top: none;
+		background: #003c57;
+	}
+	.main{
+		min-width: 1375px;
+	}
+
+}
+
+.filtrate_clear{
+	right: 128px;
+}
+.goback{
+	position: absolute;
+	right: 5px;
+	top: 2px;
+}

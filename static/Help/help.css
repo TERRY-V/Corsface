@@ -1,0 +1,76 @@
+body{
+    background: #fcfcfc;
+}
+a:focus, a:hover{
+    text-decoration: none;
+    color:#777;
+}
+.borderBox{
+    background: white;
+    padding: 50px 50px 1000px;
+    box-shadow: 0 0 10px #dddddd;
+    position: fixed;
+}
+.borderBox li{
+    line-height: 40px;
+}
+.borderBox li a.on {
+    color: #02B8EE;
+    font-weight: bold;
+}
+p.title {
+    font-size: 30px;
+    font-weight: bold;
+}
+p.title span{
+    font-size: 18px;
+    padding-left: 10px;
+    color: #999999;
+}
+#download p.linkDownload{
+    font-size: 18px;
+}
+#download p.linkDownload a{
+    padding: 10px;
+}
+#download table td:first-child{
+    text-indent: 2em;
+}
+.img-responsive{
+    margin: 30px 0;
+}
+table td.tableTitle{
+    font-size: 24px;
+    font-weight: bold;
+    text-indent: 1em!important;
+}
+
+#set ul .subTitle{
+    font-size: 20px;
+}
+#set ul .describe {
+    font-size: 14px;
+    text-indent: 2em;
+}
+#set ul li{
+    margin-bottom: 20px;
+}
+#set td.chrome img{
+    padding-bottom: 10px;
+}
+#set .bottomBorder:first-child{
+    border-bottom: none;
+}
+#set .bottomBorder{
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+#compatibility table td:first-child{
+    width: 25%;
+    text-indent: 1em;
+}
+@media(min-width:1200px){
+    aside.borderBox{
+        width: 262px;
+    }
+}

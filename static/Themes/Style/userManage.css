@@ -1,0 +1,79 @@
+.FormTitle {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    box-sizing: border-box;
+    color: #83CCE4;
+    padding-left: 20px;
+    background: url(../Images/Default/titleLeft.png) no-repeat left top;
+}
+.FormTitleRight {
+    background: url(../Images/Default/titleRight.png) no-repeat right top;
+}
+.FormTitleMid{
+    background: url(../Images/Default/titleMid.png) repeat-x top;
+}
+.FormContent {
+    position: relative;
+    height: calc(100% - 40px);
+    box-sizing: border-box;
+    border-width: 2px 2px 2px;
+    border-style: none solid solid;
+    border-color: rgb(0, 172, 228) rgb(0, 172, 228) rgb(0, 172, 228);
+    border-image: initial;
+    border-top: none;
+    padding: 0 0 10px 0 ;
+    overflow: hidden;
+}
+
+.btnWrap {
+   overflow: hidden;
+}
+.comclass{
+    position: relative;
+    padding-top: 40px;
+    /*border: 2px solid #00ACE4;*/
+    overflow: hidden;
+}
+.new_user_btn {
+    position: absolute ;
+    right: 45px;
+    top: 15px;
+    /*margin-top: 10px;*/
+}
+
+.user_btn{
+    position: absolute;
+    bottom: 10%;
+    display: inline-block;
+    margin-left: 25%;
+}
+.submit {
+    margin-left: 50%;
+}
+.user_btn input{
+    border: none;
+    border-radius: 6px;
+}
+.cancel input {
+    background: rgba(82, 124, 142, 1) ;
+}
+.submit input {
+    background: rgba(0, 89, 129, 1) ;
+}
+select {
+    width: 200px;
+    height: 30px;
+    background: #002c40;
+    border: 1px solid #00ace4;
+    color: #fff;
+}
+textarea {
+    width: 70%;
+    height: 160px;
+    background: #002c40;
+    border: 1px solid #00ace4;
+
+}
+
